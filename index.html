@@ -2,11 +2,12 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
- <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>smashHit core ontology)</title>
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />
+ <title>smashHitcore ontology</title>
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"http://ontologies.atb-bremen.de/smashHitCore","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://ontologies.atb-bremen.de/smashHitCore","name":"smashHitcore ontology", "headline":"Document describing the ontology http://ontologies.atb-bremen.de/smashHitCore", "datePublished":"Mon Jun 07 13:17:26 CEST 2021", "version":"$Date: 2009/11/15 10:54:12 $"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://ontologies.atb-bremen.de/smashHitCore","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://ontologies.atb-bremen.de/smashHitCore","name":"http://ontologies.atb-bremen.de/smashHitCore", "headline":"Document describing the ontology http://ontologies.atb-bremen.de/smashHitCore", "datePublished":"Mon Oct 11 12:37:33 CEST 2021", "version":"$Date: 2021/10/11 10:54:12 $"}</script>
 
 <script src="resources/jquery.js"></script>
 <script src="resources/marked.min.js"></script>
@@ -42,7 +43,9 @@ function loadTOC(){
 	  t+='</ul>';
 	  $("#toc").html(t);
 }
- $.fn.ignore = function(sel){
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
         return this.clone().find(sel||">*").remove().end();
  };
    </script>
@@ -52,7 +55,6 @@ function loadTOC(){
 <div class="container">
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
-<h1>smashHitcore ontology</h1>
 
 
 <dl>
@@ -61,11 +63,7 @@ function loadTOC(){
 <dt>Latest version:</dt>
 <dd><a href="http://ontologies.atb-bremen.de/smashHitCore">http://ontologies.atb-bremen.de/smashHitCore</a></dd>
 <dt>Revision:</dt>
-<dd>$Date: 2021/06/07$</dd>
-
-<dt>License: </dt><dd><a href="http://insertlicenseURIhere.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.org" /></a>
-</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/OOPSeval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> -->
-</dl>
+<dd>2021/10/11 10:54:12</dd>
 
 <hr/>
 </div>
@@ -73,22 +71,1148 @@ function loadTOC(){
 <div>
 <span>Ontology Specification Draft</span>
 </div>
-</div>     <div id="abstract">The smashHitCore ontology extends the scope of existing ontologies by providing an integrated semantic model for multiple domains such as data processing, contracts, licenses and sensor data. This work is part of the smashHit4 project, which aims to develop a framework for trusted and secure sharing of data streams from both personal and industrial platforms needed to build sectorial and cross-sectorial services.
-The ontology models multiple GDPR legal bases such as consent and contracts, but is not limited to them. Concepts such as metadata, sensor data, data processing, involved entities, which can be useful for compliance checking, are modelled as well.
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+The smashHitCore ontology extends the scope of existing ontologies by providing an integrated semantic model for multiple domains such as data processing, contracts, licenses and sensor data. This work is part of the smashHit4 project, which aims to develop a framework for trusted and secure sharing of data streams from both personal and industrial platforms needed to build sectorial and cross-sectorial services. The ontology models multiple GDPR legal bases such as consent and contracts, but is not limited to them. Concepts such as metadata, sensor data, data processing, involved entities, which can be useful for compliance checking, are modelled as well.
 </div>
-<div id="toc"></div>
+<div id="introduction"><h2>Introduction</h2><span class="markdown">
+The smashHitCore ontology is being developed for GDPR- compliant secure and controlled sharing of personal and industrial data. smashHitCore represents informed consent as defined by GDPR (Art. 7) but is not limited to it. Based on limitations of existing ontologies for consent such as the ones presented in Section 2, we have built a semantic model that also models sensor data, contracts, licenses and involved entities. The current version of smashHitCore (v1) focuses mainly on semantically represent- ing informed consent and concepts such as contracts and licenses are not yet modelled in detail. The ontology development will go through several iterations as the smashHit project progresses. However, the current version of smashHitCore can already be used as intended: as the main data model for the smashHit legal knowledge graph and for per- forming GDPR compliance checking. The ontology provides a common understanding of informed consent, contracts and data processing in different context, for all entities that are involved with the smashHit framework. Future work will focus on the classes Contract and License and concepts such as privacy and security. For example, defining specific terms and conditions that might apply for each contract type, the status of a contract, example contexts and specific privacy measures (e.g. privacy policies and notices) that apply. Further, given the GDPR mandated Privacy by Design approach (Art. 25) smashHitCore v2 will include privacy and security concepts that enable seamless communication between the privacy and security layer of smashHit and the rest of the system as well as concepts and properties for modelling the context under which the consent is being given.
+</div>
 
-<!--INTRODUCTION SECTION-->
-    <div id="introduction">The smashHitCore ontology is being developed for GDPR- compliant secure and controlled sharing of personal and industrial data. smashHitCore represents informed consent as defined by GDPR (Art. 7) but is not limited to it. Based on limitations of existing ontologies for consent such as the ones presented in Section 2, we have built a semantic model that also models sensor data, contracts, licenses and involved entities.
-The current version of smashHitCore (v1) focuses mainly on semantically represent- ing informed consent and concepts such as contracts and licenses are not yet modelled in detail. The ontology development will go through several iterations as the smashHit project progresses. However, the current version of smashHitCore can already be used as intended: as the main data model for the smashHit legal knowledge graph and for per- forming GDPR compliance checking. The ontology provides a common understanding of informed consent, contracts and data processing in different context, for all entities that are involved with the smashHit framework.
-Future work will focus on the classes Contract and License and concepts such as privacy and security. For example, defining specific terms and conditions that might apply for each contract type, the status of a contract, example contexts and specific privacy measures (e.g. privacy policies and notices) that apply. Further, given the GDPR mandated Privacy by Design approach (Art. 25) smashHitCore v2 will include privacy and security concepts that enable seamless communication between the privacy and security layer of smashHit and the rest of the system as well as concepts and properties for modelling the context under which the consent is being given.
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">The OWL 2 Schema vocabulary (OWL 2): Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#AcademicResearch" title="http://www.w3.org/ns/dpv#AcademicResearch">Academic Research</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#AccessControl" title="http://www.w3.org/ns/dpv#AccessControl">Access Control</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/Action" title="http://www.w3.org/ns/odrl/2/Action">Action</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Adapt" title="http://www.w3.org/ns/dpv#Adapt">Adapt</a>
+   </li>
+   <li>
+      <a href="#fibo-fnd-plc-adr:Address" title="fibo-fnd-plc-adr:Address">Address</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a>
+   </li>
+   <li>
+      <a href="#agentid"
+         title="http://ontologies.atb-bremen.de/smashHitCore#agentid">
+         <span>agentid</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Align" title="http://www.w3.org/ns/dpv#Align">Align</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Alter" title="http://www.w3.org/ns/dpv#Alter">Alter</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#AppBased"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#AppBased">AppBased</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/Asset" title="http://www.w3.org/ns/odrl/2/Asset">Asset</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/AssetCollection" title="http://www.w3.org/ns/odrl/2/AssetCollection">Asset Collection</a>
+   </li>
+   <li>
+      <a href="#fibo-fnd-agr-ctr:AssignableContract" title="fibo-fnd-agr-ctr:AssignableContract">AssignableContract</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Audio"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#Audio">Audio</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Authenticating" title="http://www.w3.org/ns/dpv#Authenticating">Authenticating</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/birthDate" title="https://schema.org/birthDate">birthDate</a>
+   </li>
+   <li>
+      <a href="#BuildingData"
+         title="http://ontologies.atb-bremen.de/smashHitCore#BuildingData">Building Data</a>
+   </li>
+   <li>
+      <a href="#CarData"
+         title="http://ontologies.atb-bremen.de/smashHitCore#CarData">Car Data</a>
+   </li>
+   <li>
+      <a href="#City"
+         title="http://ontologies.atb-bremen.de/smashHitCore#City">
+         <span>city</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Collect" title="http://www.w3.org/ns/dpv#Collect">Collect</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Combine" title="http://www.w3.org/ns/dpv#Combine">Combine</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#CommercialInterest" title="http://www.w3.org/ns/dpv#CommercialInterest">Commercial Interest</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#CommercialResearch" title="http://www.w3.org/ns/dpv#CommercialResearch">Commercial Research</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
+   </li>
+   <li>
+      <a href="#consent"
+         title="http://ontologies.atb-bremen.de/smashHitCore#consent">Consent</a>
+   </li>
+   <li>
+      <a href="#ConsentID"
+         title="http://ontologies.atb-bremen.de/smashHitCore#ConsentID">
+         <span>consent i d</span>
+      </a>
+   </li>
+   <li>
+      <a href="#ConsentStatus"
+         title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">Consent Status</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat">ConsentFormat</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Consult" title="http://www.w3.org/ns/dpv#Consult">Consult</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Contact" title="http://www.w3.org/ns/dpv#Contact">Contact</a>
+   </li>
+   <li>
+      <a href="#Context"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Context">
+         <span>context</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_">Contract</a>
+   </li>
+   <li>
+      <a href="#ContractProvider"
+         title="http://ontologies.atb-bremen.de/smashHitCore#ContractProvider">
+         <span>contract provider</span>
+      </a>
+   </li>
+   <li>
+      <a href="#ContractRequester"
+         title="http://ontologies.atb-bremen.de/smashHitCore#ContractRequester">
+         <span>contract requester</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/ContractDocument"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/ContractDocument">ContractDocument</a>
+   </li>
+   <li>
+      <a href="#ContractId"
+         title="http://ontologies.atb-bremen.de/smashHitCore#ContractId">ContractId</a>
+   </li>
+   <li>
+      <a href="#fibo-fnd-plc-adr:ConventionalStreetAddress" title="fibo-fnd-plc-adr:ConventionalStreetAddress">Conventional Street Address</a>
+   </li>
+   <li>
+      <a href="#Country"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Country">
+         <span>country</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#CreateEventRecommendations"
+         title="http://www.w3.org/ns/dpv#CreateEventRecommendations">Create Event Recommendations</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#CreatePersonalizedRecommendations"
+         title="http://www.w3.org/ns/dpv#CreatePersonalizedRecommendations">Create Personalized Recommendations</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#CreateProductRecommendations"
+         title="http://www.w3.org/ns/dpv#CreateProductRecommendations">Create Product Recommendations</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/CreditAgreement"
+         title="https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/CreditAgreement">CreditAgreement</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/DER/DerivativesContracts/DerivativesMasterAgreements/CreditSupportAgreement"
+         title="https://spec.edmcouncil.org/fibo/ontology/DER/DerivativesContracts/DerivativesMasterAgreements/CreditSupportAgreement">CreditSupportAgreement</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#CustomerCare" title="http://www.w3.org/ns/dpv#CustomerCare">Customer Care</a>
+   </li>
+   <li>
+      <a href="#DataController"
+         title="http://ontologies.atb-bremen.de/smashHitCore#DataController">
+         <span>data controller</span>
+      </a>
+   </li>
+   <li>
+      <a href="#DataOwner"
+         title="http://ontologies.atb-bremen.de/smashHitCore#DataOwner">
+         <span>data owner</span>
+      </a>
+   </li>
+   <li>
+      <a href="#DataProtectionOfficer"
+         title="http://ontologies.atb-bremen.de/smashHitCore#DataProtectionOfficer">
+         <span>data protection officer</span>
+      </a>
+   </li>
+   <li>
+      <a href="#DataProvider"
+         title="http://ontologies.atb-bremen.de/smashHitCore#DataProvider">
+         <span>data provider</span>
+      </a>
+   </li>
+   <li>
+      <a href="#DataRequester"
+         title="http://ontologies.atb-bremen.de/smashHitCore#DataRequester">
+         <span>data requester</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#DataSource" title="http://www.w3.org/ns/dpv#DataSource">Data Source</a>
+   </li>
+   <li>
+      <a href="#DataRentetionDate"
+         title="http://ontologies.atb-bremen.de/smashHitCore#DataRentetionDate">DataRetentionDate</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#Dataset" title="http://www.w3.org/ns/dcat#Dataset">Dataset</a>
+   </li>
+   <li>
+      <a href="#DataType"
+         title="http://ontologies.atb-bremen.de/smashHitCore#DataType">DataType</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#DeliveryOfGoods" title="http://www.w3.org/ns/dpv#DeliveryOfGoods">Delivery of Goods</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Destruct" title="http://www.w3.org/ns/dpv#Destruct">Destruct</a>
+   </li>
+   <li>
+      <a href="#Device"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Device">Device</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#DiscloseByTransmission" title="http://www.w3.org/ns/dpv#DiscloseByTransmission">Disclose by Transmission</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Disseminate" title="http://www.w3.org/ns/dpv#Disseminate">Disseminate</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/Duty" title="http://www.w3.org/ns/odrl/2/Duty">Duty</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/EconomicContract"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/EconomicContract">EconomicContract</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#EmailAddress" title="http://www.w3.org/ns/dpv#EmailAddress">EmailAddress</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Erase" title="http://www.w3.org/ns/dpv#Erase">Erase</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#External" title="http://www.w3.org/ns/dpv#External">External</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Financial" title="http://www.w3.org/ns/dpv#Financial">Financial</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#FraudPreventionAndDetection"
+         title="http://www.w3.org/ns/dpv#FraudPreventionAndDetection">Fraud Prevention and Detection</a>
+   </li>
+   <li>
+      <a href="#http://mmisw.org/ont/univmemphis/sensor#GPS" title="http://mmisw.org/ont/univmemphis/sensor#GPS">GPS</a>
+   </li>
+   <li>
+      <a href="#Granted"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Granted">
+         <span>granted</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Hash"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Hash">
+         <span>hash</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://mmisw.org/ont/univmemphis/sensor#Humidity"
+         title="http://mmisw.org/ont/univmemphis/sensor#Humidity">Humidity</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Identifying" title="http://www.w3.org/ns/dpv#Identifying">Identifying</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#IdentityVerification" title="http://www.w3.org/ns/dpv#IdentityVerification">Identity Verification</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#ImproveExistingProductsAndServices"
+         title="http://www.w3.org/ns/dpv#ImproveExistingProductsAndServices">Improve Existing Products and Services</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#ImproveInternalCRMProcesses"
+         title="http://www.w3.org/ns/dpv#ImproveInternalCRMProcesses">Improve Internal CRM Processes</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#IncreaseServiceRobustness"
+         title="http://www.w3.org/ns/dpv#IncreaseServiceRobustness">Increase Service Robustness</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Internal" title="http://www.w3.org/ns/dpv#Internal">Internal</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#InternalResourceOptimisation"
+         title="http://www.w3.org/ns/dpv#InternalResourceOptimisation">Internal Resource Optimisation</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/GConsent#StatusInvalidForProcessing"
+         title="https://w3id.org/GConsent#StatusInvalidForProcessing">Invalid</a>
+   </li>
+   <li>
+      <a href="#license"
+         title="http://ontologies.atb-bremen.de/smashHitCore#license">
+         <span>License</span>
+      </a>
+   </li>
+   <li>
+      <a href="#LicenseId"
+         title="http://ontologies.atb-bremen.de/smashHitCore#LicenseId">
+         <span>license id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://mmisw.org/ont/univmemphis/sensor#Light" title="http://mmisw.org/ont/univmemphis/sensor#Light">Light</a>
+   </li>
+   <li>
+      <a href="#Location"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Location">
+         <span>location</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">Location</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/Location" title="http://purl.org/dc/terms/Location">Location</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Location" title="http://www.w3.org/ns/dpv#Location">Location</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/GConsent#Medium" title="https://w3id.org/GConsent#Medium">Medium </a>
+   </li>
+   <li>
+      <a href="#metadata"
+         title="http://ontologies.atb-bremen.de/smashHitCore#metadata">Metadata</a>
+   </li>
+   <li>
+      <a href="#Mileage"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Mileage">
+         <span>mileage</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://mmisw.org/ont/univmemphis/sensor#Motion" title="http://mmisw.org/ont/univmemphis/sensor#Motion">Motion</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement">MutualAgreement</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Name" title="http://www.w3.org/ns/dpv#Name">Name</a>
+   </li>
+   <li>
+      <a href="#fibo-fbc-fi-fi:NegotiableSecurity" title="fibo-fbc-fi-fi:NegotiableSecurity">NegotiableSecurity</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#NonCommercialResearch" title="http://www.w3.org/ns/dpv#NonCommercialResearch">Non-Commercial Research</a>
+   </li>
+   <li>
+      <a href="#http://mmisw.org/ont/univmemphis/sensor#Non-Imaging"
+         title="http://mmisw.org/ont/univmemphis/sensor#Non-Imaging">Non-Imaging</a>
+   </li>
+   <li>
+      <a href="#fibo-fnd-agr-ctr:NovateableContract" title="fibo-fnd-agr-ctr:NovateableContract">NovateableContract</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#OfficialID" title="http://www.w3.org/ns/dpv#OfficialID">OfficialID</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#OnlineForm"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#OnlineForm">OnlineForm</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#OnlineOptInOption"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#OnlineOptInOption">Opt-InOption</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#OptimisationForConsumer"
+         title="http://www.w3.org/ns/dpv#OptimisationForConsumer">Optimisation for Consumer</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#OptimisationForController"
+         title="http://www.w3.org/ns/dpv#OptimisationForController">Optimisation for Controller</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#OptimiseUserInterface" title="http://www.w3.org/ns/dpv#OptimiseUserInterface">Optimise User Interface</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Organise" title="http://www.w3.org/ns/dpv#Organise">Organise</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#Organization" title="http://www.w3.org/ns/prov#Organization">Organization</a>
+   </li>
+   <li>
+      <a href="#http://mmisw.org/ont/univmemphis/sensor#Orientation"
+         title="http://mmisw.org/ont/univmemphis/sensor#Orientation">Orientation</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Ownership" title="http://www.w3.org/ns/dpv#Ownership">Ownership</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Paper"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#Paper">Paper</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Password" title="http://www.w3.org/ns/dpv#Password">Password</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/PeriodOfTime" title="http://purl.org/dc/terms/PeriodOfTime">Period of Time</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/Permission" title="http://www.w3.org/ns/odrl/2/Permission">Permission</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#Person" title="http://www.w3.org/ns/prov#Person">Person</a>
+   </li>
+   <li>
+      <a href="#PersonalData"
+         title="http://ontologies.atb-bremen.de/smashHitCore#PersonalData">PersonalData</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#PersonalDataCategory" title="http://www.w3.org/ns/dpv#PersonalDataCategory">PersonalDataCategory</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#PersonalisedBenefits" title="http://www.w3.org/ns/dpv#PersonalisedBenefits">Personalised Benefits</a>
+   </li>
+   <li>
+      <a href="#fibo-fnd-plc-adr:PhysicalAddress" title="fibo-fnd-plc-adr:PhysicalAddress">Physical Address</a>
+   </li>
+   <li>
+      <a href="#PhysicalLocation"
+         title="http://ontologies.atb-bremen.de/smashHitCore#PhysicalLocation">PhysicalLocation</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/Policy" title="http://www.w3.org/ns/odrl/2/Policy">
+         <span>policy</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Preference" title="http://www.w3.org/ns/dpv#Preference">Preference</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#PrivacyPreference" title="http://www.w3.org/ns/dpv#PrivacyPreference">PrivacyPreference</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Purpose" title="http://www.w3.org/ns/dpv#Purpose">Purpose</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Record" title="http://www.w3.org/ns/dpv#Record">Record</a>
+   </li>
+   <li>
+      <a href="#Region"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Region">
+         <span>region</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#ResearchAndDevelopment" title="http://www.w3.org/ns/dpv#ResearchAndDevelopment">Research and Development</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#Resource" title="http://www.w3.org/ns/dcat#Resource">Resource</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Restrict" title="http://www.w3.org/ns/dpv#Restrict">Restrict</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Retrieve" title="http://www.w3.org/ns/dpv#Retrieve">Retrieve</a>
+   </li>
+   <li>
+      <a href="#Revoked"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Revoked">
+         <span>revoked</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Risk"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Risk">Risk</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#Role" title="http://www.w3.org/ns/dcat#Role">Role</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/Rule" title="http://www.w3.org/ns/odrl/2/Rule">Rule</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Security" title="http://www.w3.org/ns/dpv#Security">Security</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#SellDataToThirdParties" title="http://www.w3.org/ns/dpv#SellDataToThirdParties">Sell Data to Third Parties</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#SellInsightsFromData" title="http://www.w3.org/ns/dpv#SellInsightsFromData">Sell Insights from Data</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#SellProductsToDataSubject"
+         title="http://www.w3.org/ns/dpv#SellProductsToDataSubject">Sell Products to Data Subject</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#SellTargettedAdvertisements"
+         title="http://www.w3.org/ns/dpv#SellTargettedAdvertisements">Sell Targetted Advertisements</a>
+   </li>
+   <li>
+      <a href="#Sensor"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Sensor">Sensor</a>
+   </li>
+   <li>
+      <a href="#SensorData"
+         title="http://ontologies.atb-bremen.de/smashHitCore#SensorData">SensorData</a>
+   </li>
+   <li>
+      <a href="#SensorDataCategory"
+         title="http://ontologies.atb-bremen.de/smashHitCore#SensorDataCategory">SensorDataCategory</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#ServiceOptimization" title="http://www.w3.org/ns/dpv#ServiceOptimization">Service Optimization</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#ServicePersonalization" title="http://www.w3.org/ns/dpv#ServicePersonalization">Service Personalization</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#ServiceProvision" title="http://www.w3.org/ns/dpv#ServiceProvision">Service Provision</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/Set" title="http://www.w3.org/ns/odrl/2/Set">Set</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Share" title="http://www.w3.org/ns/dpv#Share">Share</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">SoftwareAgent</a>
+   </li>
+   <li>
+      <a href="#Source"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Source">Source</a>
+   </li>
+   <li>
+      <a href="#State"
+         title="http://ontologies.atb-bremen.de/smashHitCore#State">
+         <span>state</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Status"
+         title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Status">Status</a>
+   </li>
+   <li>
+      <a href="#StorageLocation"
+         title="http://ontologies.atb-bremen.de/smashHitCore#StorageLocation">StorageLocation</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Store" title="http://www.w3.org/ns/dpv#Store">Store</a>
+   </li>
+   <li>
+      <a href="#fibo-fnd-plc-adr:StreetAddress" title="fibo-fnd-plc-adr:StreetAddress">Street Address</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Structure" title="http://www.w3.org/ns/dpv#Structure">Structure</a>
+   </li>
+   <li>
+      <a href="#TelephoneNumber"
+         title="http://ontologies.atb-bremen.de/smashHitCore#TelephoneNumber">
+         <span>telephone number</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#Thing" title="http://www.w3.org/2002/07/owl#Thing">Thing</a>
+   </li>
+   <li>
+      <a href="#Time"
+         title="http://ontologies.atb-bremen.de/smashHitCore#Time">
+         <span>time</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Tracking" title="http://www.w3.org/ns/dpv#Tracking">Tracking</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/TransferableContract"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/TransferableContract">TransferableContract</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#UID" title="http://www.w3.org/ns/dpv#UID">UID</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/UnilateralContract"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/UnilateralContract">UnilateralContract</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Use" title="http://www.w3.org/ns/dpv#Use">Use</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#UserInterfacePersonalisation"
+         title="http://www.w3.org/ns/dpv#UserInterfacePersonalisation">User Interface Personalisation</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#Username" title="http://www.w3.org/ns/dpv#Username">Username</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/GConsent#StatusValidForProcessing"
+         title="https://w3id.org/GConsent#StatusValidForProcessing">Valid</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/VerbalContract"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/VerbalContract">VerbalContract</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Video"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#Video">Video</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/WrittenContract"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/WrittenContract">WrittenContract</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/accessRights" title="http://purl.org/dc/terms/accessRights">
+         <span>access rights</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#actedOnBehalfOf" title="http://www.w3.org/ns/prov#actedOnBehalfOf">actedOnBehalfOf</a>
+   </li>
+   <li>
+      <a href="#atCity"
+         title="http://ontologies.atb-bremen.de/smashHitCore#atCity">
+         <span>at city</span>
+      </a>
+   </li>
+   <li>
+      <a href="#atCountry"
+         title="http://ontologies.atb-bremen.de/smashHitCore#atCountry">
+         <span>at country</span>
+      </a>
+   </li>
+   <li>
+      <a href="#atDateTime"
+         title="http://ontologies.atb-bremen.de/smashHitCore#atDateTime">
+         <span>at date time</span>
+      </a>
+   </li>
+   <li>
+      <a href="#atLocation"
+         title="http://ontologies.atb-bremen.de/smashHitCore#atLocation">
+         <span>at location</span>
+      </a>
+   </li>
+   <li>
+      <a href="#atRegion"
+         title="http://ontologies.atb-bremen.de/smashHitCore#atRegion">
+         <span>at region</span>
+      </a>
+   </li>
+   <li>
+      <a href="#atState"
+         title="http://ontologies.atb-bremen.de/smashHitCore#atState">
+         <span>at state</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#bbox" title="http://www.w3.org/ns/dcat#bbox">
+         <span>bbox</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#bottomObjectProperty"
+         title="http://www.w3.org/2002/07/owl#bottomObjectProperty">bottomObjectProperty</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#data_has_a_format"
+         title="http://purl.org/adaptcentre/openscience/ontologies/consent#data_has_a_format">data_has_format</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#differentFrom" title="http://www.w3.org/2002/07/owl#differentFrom">differentFrom</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#endDate" title="http://www.w3.org/ns/dcat#endDate">
+         <span>end date</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasExpirationDate"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasExpirationDate">ExpirationDate</a>
+   </li>
+   <li>
+      <a href="#forDataProcessing"
+         title="http://ontologies.atb-bremen.de/smashHitCore#forDataProcessing">
+         <span>for data processing</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/format" title="http://purl.org/dc/terms/format">
+         <span>format</span>
+      </a>
+   </li>
+   <li>
+      <a href="#GrantedAtTime"
+         title="http://ontologies.atb-bremen.de/smashHitCore#GrantedAtTime">
+         <span>granted at time</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#hadRole" title="http://www.w3.org/ns/dcat#hadRole">hadRole</a>
+   </li>
+   <li>
+      <a href="#hasAssociation"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasAssociation">
+         <span>has association</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasCity"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasCity">
+         <span>has city</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasContext"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasContext">
+         <span>has context</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasCountry"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasCountry">
+         <span>has country</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasDataController"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasDataController">
+         <span>has data controller</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasEmail"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasEmail">
+         <span>has email</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasExpiry"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasExpiry">
+         <span>has expiry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasHash"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasHash">
+         <span>has hash</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData"
+         title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData">
+         <span>has input data</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasLimitationOnUse"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasLimitationOnUse">
+         <span>has limitation on use</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasMetadata"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasMetadata">
+         <span>has metadata</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasName"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasName">
+         <span>has name</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasOutputData"
+         title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasOutputData">
+         <span>has output data</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasPersonalData"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasPersonalData">
+         <span>has personal data</span>
+      </a>
+   </li>
+   <li>
+      <a href="#dpv:hasPersonalDataCategory" title="dpv:hasPersonalDataCategory">has personal data category</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#hasPersonalDataCategory"
+         title="http://www.w3.org/ns/dpv#hasPersonalDataCategory">has personal data category</a>
+   </li>
+   <li>
+      <a href="#hasPostalCode"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasPostalCode">
+         <span>has postal code</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dpv#hasPurpose" title="http://www.w3.org/ns/dpv#hasPurpose">has Purpose</a>
+   </li>
+   <li>
+      <a href="#hasPurposePreference"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasPurposePreference">
+         <span>has purpose preference</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasRetentionDate"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasRetentionDate">
+         <span>has retention date</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasRole"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasRole">
+         <span>has role</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasSensorDataCategory"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasSensorDataCategory">
+         <span>has sensor data category</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasStatus"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasStatus">
+         <span>has status</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasTelephone"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasTelephone">
+         <span>has telephone</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasType"
+         title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasType">
+         <span>has type</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasUsername"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasUsername">
+         <span>has username</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/hasVersion" title="http://purl.org/dc/terms/hasVersion">
+         <span>has version</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasAddress"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasAddress">hasAddress</a>
+   </li>
+   <li>
+      <a href="#hasAmendment"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasAmendment">
+         <span>hasAmendment</span>
+      </a>
+   </li>
+   <li>
+      <a href="#fibo-der-drc-ma:hasBeneficiary" title="fibo-der-drc-ma:hasBeneficiary">hasBeneficiary</a>
+   </li>
+   <li>
+      <a href="#hasConfidentialityObligation"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasConfidentialityObligation">
+         <span>hasConfidentialityObligation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasContractParty"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasContractParty">hasContractParty</a>
+   </li>
+   <li>
+      <a href="#hasContractStatus"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasContractStatus">
+         <span>hasContractStatus</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasContractType"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasContractType">hasContractType</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasContractualElement"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasContractualElement">hasContractualElement</a>
+   </li>
+   <li>
+      <a href="#hasDataProtection"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasDataProtection">
+         <span>hasDataProtection</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasEffectiveDate"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasEffectiveDate">
+         <span>hasEffectiveDate</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasEffectiveDateTimeStamp"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasEffectiveDateTimeStamp">hasEffectiveDateTimeStamp</a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasExecutionDate"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasExecutionDate">
+         <span>hasExecutionDate</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasExecutionDateTimeStamp"
+         title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasExecutionDateTimeStamp">hasExecutionDateTimeStamp</a>
+   </li>
+   <li>
+      <a href="#hasMethodOfNotice"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasMethodOfNotice">
+         <span>hasMethodOfNotice</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasMinimumDuration"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasMinimumDuration">
+         <span>hasMinimumDuration</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasNoThirdPartyBeneficiaries"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasNoThirdPartyBeneficiaries">
+         <span>hasNoThirdPartyBeneficiaries</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasPermittedDisclosure"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasPermittedDisclosure">
+         <span>hasPermittedDisclosure</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasReceiptOfNotice"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasReceiptOfNotice">
+         <span>hasReceiptOfNotice</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/GConsent#hasRole" title="https://w3id.org/GConsent#hasRole">hasRole</a>
+   </li>
+   <li>
+      <a href="#hasSeverability"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasSeverability">
+         <span>hasSeverability</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasTerminationForInsolvency"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasTerminationForInsolvency">
+         <span>hasTerminationForInsolvency</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasTerminationForMaterialBreach"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasTerminationForMaterialBreach">
+         <span>hasTerminationForMaterialBreach</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasTerminationOnNotice"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasTerminationOnNotice">
+         <span>hasTerminationOnNotice</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasWaiver"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasWaiver">
+         <span>hasWaiver</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/identifier" title="http://purl.org/dc/terms/identifier">
+         <span>identifier</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://schema.org/identifier" title="https://schema.org/identifier">Identifier </a>
+   </li>
+   <li>
+      <a href="#inMedium"
+         title="http://ontologies.atb-bremen.de/smashHitCore#inMedium">
+         <span>in medium</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isAboutData"
+         title="http://ontologies.atb-bremen.de/smashHitCore#isAboutData">
+         <span>is about data</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isProvidedBy"
+         title="http://ontologies.atb-bremen.de/smashHitCore#isProvidedBy">
+         <span>is provided by</span>
+      </a>
+   </li>
+   <li>
+      <a href="#fibo-fnd-agr-ctr:isAssignable" title="fibo-fnd-agr-ctr:isAssignable">isAssignable</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/GConsent#isStatusForConsent" title="https://w3id.org/GConsent#isStatusForConsent">isStatusFor</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/language" title="http://purl.org/dc/terms/language">
+         <span>language</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified">
+         <span>modified</span>
+      </a>
+   </li>
+   <li>
+      <a href="#forPurpose"
+         title="http://ontologies.atb-bremen.de/smashHitCore#forPurpose">
+         <span>PurposeLimitation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#requestedBy"
+         title="http://ontologies.atb-bremen.de/smashHitCore#requestedBy">
+         <span>requested by</span>
+      </a>
+   </li>
+   <li>
+      <a href="#RevokedAtTime"
+         title="http://ontologies.atb-bremen.de/smashHitCore#RevokedAtTime">
+         <span>revoked at time</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights">
+         <span>rights</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#sameAs" title="http://www.w3.org/2002/07/owl#sameAs">sameAs</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#sourceIndividual" title="http://www.w3.org/2002/07/owl#sourceIndividual">sourceIndividual</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#startDate" title="http://www.w3.org/ns/dcat#startDate">
+         <span>start date</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#targetIndividual" title="http://www.w3.org/2002/07/owl#targetIndividual">targetIndividual</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#theme" title="http://www.w3.org/ns/dcat#theme">
+         <span>theme</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#topObjectProperty" title="http://www.w3.org/2002/07/owl#topObjectProperty">topObjectProperty</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/type" title="http://purl.org/dc/terms/type">
+         <span>type</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#bottomDataProperty"
+         title="http://www.w3.org/2002/07/owl#bottomDataProperty">bottomDataProperty</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#cardinality" title="http://www.w3.org/2002/07/owl#cardinality">cardinality</a>
+   </li>
+   <li>
+      <a href="#hasID"
+         title="http://ontologies.atb-bremen.de/smashHitCore#hasID">
+         <span>has i d</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#maxCardinality" title="http://www.w3.org/2002/07/owl#maxCardinality">maxCardinality</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#maxQualifiedCardinality"
+         title="http://www.w3.org/2002/07/owl#maxQualifiedCardinality">maxQualifiedCardinality</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#minCardinality" title="http://www.w3.org/2002/07/owl#minCardinality">minCardinality</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#minQualifiedCardinality"
+         title="http://www.w3.org/2002/07/owl#minQualifiedCardinality">minQualifiedCardinality</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#qualifiedCardinality"
+         title="http://www.w3.org/2002/07/owl#qualifiedCardinality">qualifiedCardinality</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#topDataProperty" title="http://www.w3.org/2002/07/owl#topDataProperty">topDataProperty</a>
+   </li>
+</ul>
 </div>
 
 
 <!--CROSSREF SECTION-->
    <div id="crossref"><h2 id="crossreference" class="list">Cross reference for The OWL 2 Schema vocabulary (OWL 2) classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 This section provides details for each class and property defined by The OWL 2 Schema vocabulary (OWL 2).
-<div id="classes">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
       <li>
@@ -96,6 +1220,9 @@ This section provides details for each class and property defined by The OWL 2 S
       </li>
       <li>
          <a href="#http://www.w3.org/ns/dpv#AccessControl" title="http://www.w3.org/ns/dpv#AccessControl">Access Control</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/ns/odrl/2/Action" title="http://www.w3.org/ns/odrl/2/Action">Action</a>
       </li>
       <li>
          <a href="#http://www.w3.org/ns/dpv#Adapt" title="http://www.w3.org/ns/dpv#Adapt">Adapt</a>
@@ -143,13 +1270,11 @@ This section provides details for each class and property defined by The OWL 2 S
       </li>
       <li>
          <a href="#BuildingData"
-            title="http://ontologies.atb-bremen.de/smashHitCore#BuildingData">BuildingData</a>
+            title="http://ontologies.atb-bremen.de/smashHitCore#BuildingData">Building Data</a>
       </li>
       <li>
          <a href="#CarData"
-            title="http://ontologies.atb-bremen.de/smashHitCore#CarData">
-            <span>car data</span>
-         </a>
+            title="http://ontologies.atb-bremen.de/smashHitCore#CarData">Car Data</a>
       </li>
       <li>
          <a href="#City"
@@ -184,31 +1309,23 @@ This section provides details for each class and property defined by The OWL 2 S
       </li>
       <li>
          <a href="#ConsentStatus"
-            title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">
-            <span>consent status</span>
-         </a>
-      </li>
-      <li>
-         <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Context"
-            title="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">ConsentContext</a>
+            title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">Consent Status</a>
       </li>
       <li>
          <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat"
             title="http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat">ConsentFormat</a>
       </li>
       <li>
-         <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-            title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
-      </li>
-      <li>
-         <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Time"
-            title="http://purl.org/adaptcentre/openscience/ontologies/consent#Time">ConsentTime</a>
-      </li>
-      <li>
          <a href="#http://www.w3.org/ns/dpv#Consult" title="http://www.w3.org/ns/dpv#Consult">Consult</a>
       </li>
       <li>
          <a href="#http://www.w3.org/ns/dpv#Contact" title="http://www.w3.org/ns/dpv#Contact">Contact</a>
+      </li>
+      <li>
+         <a href="#Context"
+            title="http://ontologies.atb-bremen.de/smashHitCore#Context">
+            <span>context</span>
+         </a>
       </li>
       <li>
          <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_"
@@ -297,8 +1414,11 @@ This section provides details for each class and property defined by The OWL 2 S
          </a>
       </li>
       <li>
-         <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-            title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+         <a href="#http://www.w3.org/ns/dpv#DataSource" title="http://www.w3.org/ns/dpv#DataSource">Data Source</a>
+      </li>
+      <li>
+         <a href="#DataRentetionDate"
+            title="http://ontologies.atb-bremen.de/smashHitCore#DataRentetionDate">DataRetentionDate</a>
       </li>
       <li>
          <a href="#http://www.w3.org/ns/dcat#Dataset" title="http://www.w3.org/ns/dcat#Dataset">Dataset</a>
@@ -331,19 +1451,10 @@ This section provides details for each class and property defined by The OWL 2 S
             title="https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/EconomicContract">EconomicContract</a>
       </li>
       <li>
-         <a href="#fibo-fnd-plc-vrt:ElectronicMailAddress" title="fibo-fnd-plc-vrt:ElectronicMailAddress">Electronic Mail Address</a>
-      </li>
-      <li>
          <a href="#http://www.w3.org/ns/dpv#EmailAddress" title="http://www.w3.org/ns/dpv#EmailAddress">EmailAddress</a>
       </li>
       <li>
          <a href="#http://www.w3.org/ns/dpv#Erase" title="http://www.w3.org/ns/dpv#Erase">Erase</a>
-      </li>
-      <li>
-         <a href="#ExpirationDate"
-            title="http://ontologies.atb-bremen.de/smashHitCore#ExpirationDate">
-            <span>expiration date</span>
-         </a>
       </li>
       <li>
          <a href="#http://www.w3.org/ns/dpv#External" title="http://www.w3.org/ns/dpv#External">External</a>
@@ -406,11 +1517,27 @@ This section provides details for each class and property defined by The OWL 2 S
       <li>
          <a href="#license"
             title="http://ontologies.atb-bremen.de/smashHitCore#license">
-            <span>license</span>
+            <span>License</span>
+         </a>
+      </li>
+      <li>
+         <a href="#LicenseId"
+            title="http://ontologies.atb-bremen.de/smashHitCore#LicenseId">
+            <span>license id</span>
          </a>
       </li>
       <li>
          <a href="#http://mmisw.org/ont/univmemphis/sensor#Light" title="http://mmisw.org/ont/univmemphis/sensor#Light">Light</a>
+      </li>
+      <li>
+         <a href="#Location"
+            title="http://ontologies.atb-bremen.de/smashHitCore#Location">
+            <span>location</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
+            title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">Location</a>
       </li>
       <li>
          <a href="#http://purl.org/dc/terms/Location" title="http://purl.org/dc/terms/Location">Location</a>
@@ -534,6 +1661,9 @@ This section provides details for each class and property defined by The OWL 2 S
          <a href="#http://www.w3.org/ns/dpv#PrivacyPreference" title="http://www.w3.org/ns/dpv#PrivacyPreference">PrivacyPreference</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
+      </li>
+      <li>
          <a href="#http://www.w3.org/ns/dpv#Purpose" title="http://www.w3.org/ns/dpv#Purpose">Purpose</a>
       </li>
       <li>
@@ -648,9 +1778,6 @@ This section provides details for each class and property defined by The OWL 2 S
          <a href="#http://www.w3.org/ns/dpv#Structure" title="http://www.w3.org/ns/dpv#Structure">Structure</a>
       </li>
       <li>
-         <a href="#fibo-fnd-plc-vrt:TelephoneNumber" title="fibo-fnd-plc-vrt:TelephoneNumber">Telephone Number</a>
-      </li>
-      <li>
          <a href="#TelephoneNumber"
             title="http://ontologies.atb-bremen.de/smashHitCore#TelephoneNumber">
             <span>telephone number</span>
@@ -658,6 +1785,12 @@ This section provides details for each class and property defined by The OWL 2 S
       </li>
       <li>
          <a href="#http://www.w3.org/2002/07/owl#Thing" title="http://www.w3.org/2002/07/owl#Thing">Thing</a>
+      </li>
+      <li>
+         <a href="#Time"
+            title="http://ontologies.atb-bremen.de/smashHitCore#Time">
+            <span>time</span>
+         </a>
       </li>
       <li>
          <a href="#http://www.w3.org/ns/dpv#Tracking" title="http://www.w3.org/ns/dpv#Tracking">Tracking</a>
@@ -696,9 +1829,6 @@ This section provides details for each class and property defined by The OWL 2 S
             title="http://purl.org/adaptcentre/openscience/ontologies/consent#Video">Video</a>
       </li>
       <li>
-         <a href="#fibo-fnd-plc-adr:VirtualAddress" title="fibo-fnd-plc-adr:VirtualAddress">Virtual Address</a>
-      </li>
-      <li>
          <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/WrittenContract"
             title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/WrittenContract">WrittenContract</a>
       </li>
@@ -733,6 +1863,38 @@ This section provides details for each class and property defined by The OWL 2 S
          </dd>
       </dl>
    </div>
+   <div class="entity" id="http://www.w3.org/ns/odrl/2/Action">
+      <h3>Action<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/Action</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#license"
+               title="http://ontologies.atb-bremen.de/smashHitCore#license">License</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="http://www.w3.org/ns/odrl/2/derive"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/derive">Derive</a>, <a href="http://www.w3.org/ns/odrl/2/display"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/display">Display</a>, <a href="http://www.w3.org/ns/odrl/2/distribute"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/distribute">Distribute</a>, <a href="http://www.w3.org/ns/odrl/2/modify"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/modify">Modify</a>, <a href="http://www.w3.org/ns/odrl/2/present"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/present">Present</a>, <a href="http://www.w3.org/ns/odrl/2/reproduce"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/reproduce">Reproduce</a>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="http://www.w3.org/ns/dpv#Adapt">
       <h3>Adapt<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -740,14 +1902,10 @@ This section provides details for each class and property defined by The OWL 2 S
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Adapt</p>
-      <div class="comment">
-         <span class="markdown">to modify the data, often rewritten into a new form for a new use</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -759,9 +1917,6 @@ This section provides details for each class and property defined by The OWL 2 S
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fnd-plc-adr:Address</p>
-      <div class="comment">
-         <span class="markdown">Index to a location to which communications may be delivered.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -772,7 +1927,6 @@ This section provides details for each class and property defined by The OWL 2 S
          <dd>
             <a href="#fibo-fnd-plc-adr:PhysicalAddress" title="fibo-fnd-plc-adr:PhysicalAddress">Physical Address</a>
             <sup class="type-c" title="class">c</sup>, <a href="#fibo-fnd-plc-adr:StreetAddress" title="fibo-fnd-plc-adr:StreetAddress">Street Address</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#fibo-fnd-plc-adr:VirtualAddress" title="fibo-fnd-plc-adr:VirtualAddress">Virtual Address</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -830,7 +1984,11 @@ This section provides details for each class and property defined by The OWL 2 S
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/ns/odrl/2/assignee">assignee</span>, <span class="dotted" title="http://www.w3.org/ns/odrl/2/assigner">assigner</span>, <a href="#hasDataController"
+            <a href="http://www.w3.org/ns/odrl/2/assignee"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/assignee">assignee</a>, <a href="http://www.w3.org/ns/odrl/2/assigner"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/assigner">assigner</a>, <a href="#hasDataController"
                title="http://ontologies.atb-bremen.de/smashHitCore#hasDataController">has data controller</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasType"
                title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasType">has type</a>
@@ -874,14 +2032,10 @@ This section provides details for each class and property defined by The OWL 2 S
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Align</p>
-      <div class="comment">
-         <span class="markdown">to adjust the data to be in relation to another data</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -893,14 +2047,10 @@ This section provides details for each class and property defined by The OWL 2 S
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Alter</p>
-      <div class="comment">
-         <span class="markdown">to change the data withouth changing it into something else</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -912,11 +2062,6 @@ This section provides details for each class and property defined by The OWL 2 S
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#AppBased</p>
-      <div class="comment">
-         <span class="markdown">It identifies if the consent is taken in the form of mobile application.
-
-It defines if the consent is taken in the form of mobile application.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -945,14 +2090,11 @@ It defines if the consent is taken in the form of mobile application.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/Asset</p>
-      <div class="comment">
-         <span class="markdown">The Asset entity can be any form of identifiable resource, such as data/information, content/media, applications, or services. Furthermore, it can be used to represent other Asset entities that are needed to undertake the Policy expression, such as with the Duty entity. To describe more details about the Asset, it is recommended to use Dublin Core [dcterms] elements or other content metadata.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <a href="#license"
-               title="http://ontologies.atb-bremen.de/smashHitCore#license">license</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#license">License</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
@@ -969,9 +2111,6 @@ It defines if the consent is taken in the form of mobile application.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/AssetCollection</p>
-      <div class="comment">
-         <span class="markdown">An Asset that is collection of individual resources</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -987,9 +2126,6 @@ It defines if the consent is taken in the form of mobile application.</span>
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fnd-agr-ctr:AssignableContract</p>
-      <div class="comment">
-         <span class="markdown">Contract in which contract holder (assignor) may transfer some or all of their rights and obligations to another party (assignee)</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1011,11 +2147,6 @@ It defines if the consent is taken in the form of mobile application.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#Audio</p>
-      <div class="comment">
-         <span class="markdown">It is used to identify if the consent is taken in the form of audio.
-
-It identifies if the consent is taken in the form of audio.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1052,9 +2183,6 @@ It identifies if the consent is taken in the form of audio.</span>
       </h3>
       <p>
          <strong>IRI:</strong> https://schema.org/birthDate</p>
-      <div class="comment">
-         <span class="markdown">Date of birth</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1064,7 +2192,7 @@ It identifies if the consent is taken in the form of audio.</span>
       </dl>
    </div>
    <div class="entity" id="BuildingData">
-      <h3>BuildingData<sup class="type-c" title="class">c</sup>
+      <h3>Building Data<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -1086,7 +2214,7 @@ It identifies if the consent is taken in the form of audio.</span>
       </dl>
    </div>
    <div class="entity" id="CarData">
-      <h3>car data<sup class="type-c" title="class">c</sup>
+      <h3>Car Data<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -1121,8 +2249,8 @@ It identifies if the consent is taken in the form of audio.</span>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+            <a href="#Location"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Location">location</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -1130,16 +2258,6 @@ It identifies if the consent is taken in the form of audio.</span>
             <a href="#atCity"
                title="http://ontologies.atb-bremen.de/smashHitCore#atCity">at city</a>
             <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>has members</dt>
-         <dd>
-            <a href="#Innsbruck"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Innsbruck">innsbruck</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Madrid"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Madrid">madrid</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Munich"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Munich">munich</a>
-            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
@@ -1150,14 +2268,10 @@ It identifies if the consent is taken in the form of audio.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Collect</p>
-      <div class="comment">
-         <span class="markdown">to gather data from someone</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1175,14 +2289,10 @@ It identifies if the consent is taken in the form of audio.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Combine</p>
-      <div class="comment">
-         <span class="markdown">to join or merge data</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1269,7 +2379,7 @@ It identifies if the consent is taken in the form of audio.</span>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#consent</p>
       <div class="comment">
-         <span class="markdown">Consent of the data subject means any freely given, specific, informed and unambiguous indication of the data subject’s wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.</span>
+         <span class="markdown">Consent based on GDPR</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -1279,9 +2389,7 @@ It identifies if the consent is taken in the form of audio.</span>
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Context"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">ConsentContext</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/GConsent#Medium" title="https://w3id.org/GConsent#Medium">Medium </a>
+            <a href="#https://w3id.org/GConsent#Medium" title="https://w3id.org/GConsent#Medium">Medium </a>
             <sup class="type-c" title="class">c</sup>, <a href="#ConsentID"
                title="http://ontologies.atb-bremen.de/smashHitCore#ConsentID">consent i d</a>
             <sup class="type-c" title="class">c</sup>
@@ -1326,9 +2434,6 @@ It identifies if the consent is taken in the form of audio.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#ConsentID</p>
-      <div class="comment">
-         <span class="markdown">The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1375,15 +2480,12 @@ It identifies if the consent is taken in the form of audio.</span>
       </dl>
    </div>
    <div class="entity" id="ConsentStatus">
-      <h3>consent status<sup class="type-c" title="class">c</sup>
+      <h3>Consent Status<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus</p>
-      <div class="comment">
-         <span class="markdown">Specifies the status of consent.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1412,49 +2514,6 @@ It identifies if the consent is taken in the form of audio.</span>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">
-      <h3>ConsentContext<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#Context</p>
-      <div class="comment">
-         <span class="markdown">Context is used to keep track of the contextual information while giving, modifying or revoking consent.
-
-It defines at what context the consent was given.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#consent"
-               title="http://ontologies.atb-bremen.de/smashHitCore#consent">Consent</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>has sub-classes</dt>
-         <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Time"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Time">ConsentTime</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#ExpirationDate"
-               title="http://ontologies.atb-bremen.de/smashHitCore#ExpirationDate">expiration date</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#atCity"
-               title="http://ontologies.atb-bremen.de/smashHitCore#atCity">at city</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasContext"
-               title="http://ontologies.atb-bremen.de/smashHitCore#hasContext">has context</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat">
       <h3>ConsentFormat<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -1462,11 +2521,6 @@ It defines at what context the consent was given.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat</p>
-      <div class="comment">
-         <span class="markdown">It is used to record at what format the consent was obtained.
-
-'consent format' defines the format was used to obtain the consent.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1497,88 +2551,6 @@ It defines at what context the consent was given.</span>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">
-      <h3>ConsentGivenAtLocation<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#Location</p>
-      <div class="comment">
-         <span class="markdown">The location where consent was given/revoked.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Context"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">ConsentContext</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>has sub-classes</dt>
-         <dd>
-            <a href="#City"
-               title="http://ontologies.atb-bremen.de/smashHitCore#City">city</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#Country"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Country">country</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#Region"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Region">region</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#State"
-               title="http://ontologies.atb-bremen.de/smashHitCore#State">state</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#atCountry"
-               title="http://ontologies.atb-bremen.de/smashHitCore#atCountry">at country</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#atRegion"
-               title="http://ontologies.atb-bremen.de/smashHitCore#atRegion">at region</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#atState"
-               title="http://ontologies.atb-bremen.de/smashHitCore#atState">at state</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#atLocation"
-               title="http://ontologies.atb-bremen.de/smashHitCore#atLocation">at location</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="http://purl.org/adaptcentre/openscience/ontologies/consent#Time">
-      <h3>ConsentTime<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#Time</p>
-      <div class="comment">
-         <span class="markdown">The time when consent was given/revoked.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Context"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">ConsentContext</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#atDateTime"
-               title="http://ontologies.atb-bremen.de/smashHitCore#atDateTime">at date time</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>has members</dt>
-         <dd>
-            <a href="#02/04/2021"
-               title="http://ontologies.atb-bremen.de/smashHitCore#02/04/2021">02/04/2021</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#10/05/2021"
-               title="http://ontologies.atb-bremen.de/smashHitCore#10/05/2021">10/05/2021</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#22/03/2021"
-               title="http://ontologies.atb-bremen.de/smashHitCore#22/03/2021">22/03/2021</a>
-            <sup class="type-ni" title="named individual">ni</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="http://www.w3.org/ns/dpv#Consult">
       <h3>Consult<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -1586,14 +2558,10 @@ It defines at what context the consent was given.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Consult</p>
-      <div class="comment">
-         <span class="markdown">to consult or query data</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -1620,6 +2588,29 @@ It defines at what context the consent was given.</span>
          </dd>
       </dl>
    </div>
+   <div class="entity" id="Context">
+      <h3>context<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#Context</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://www.w3.org/2002/07/owl#Thing" title="http://www.w3.org/2002/07/owl#Thing">Thing</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Location"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Location">location</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Time"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Time">time</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_">
       <h3>Contract<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -1628,7 +2619,7 @@ It defines at what context the consent was given.</span>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_</p>
       <div class="comment">
-         <span class="markdown">explanatory note
+         <span class="markdown">Explanatory Note
 A contractual relationship is evidenced by (1) an offer, (2) acceptance of the offer, and a (3) valid (legal and valuable) consideration. A contract is a kind of agreement, and as such it embodies the assertion that it has been negotiated, such negotiation having included the presence of some offer and the acceptance of that offer on the part of either or both of the parties.
 Contracts are usually written but may be spoken or implied, and generally have to do with employment, sale or lease, or tenancy.</span>
       </div>
@@ -1670,6 +2661,8 @@ Contracts are usually written but may be spoken or implied, and generally have t
                title="http://ontologies.atb-bremen.de/smashHitCore#hasCountry">has country</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasDataController"
                title="http://ontologies.atb-bremen.de/smashHitCore#hasDataController">has data controller</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasExpiry"
+               title="http://ontologies.atb-bremen.de/smashHitCore#hasExpiry">has expiry</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData"
                title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData">has input data</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasLimitationOnUse"
@@ -1775,10 +2768,6 @@ Contracts are usually written but may be spoken or implied, and generally have t
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/ContractDocument</p>
-      <div class="comment">
-         <span class="markdown">legal document that records the formal terms and conditions of some contract
-</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1825,9 +2814,6 @@ Contracts are usually written but may be spoken or implied, and generally have t
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#ContractId</p>
-      <div class="comment">
-         <span class="markdown">The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1857,9 +2843,6 @@ Contracts are usually written but may be spoken or implied, and generally have t
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fnd-plc-adr:ConventionalStreetAddress</p>
-      <div class="comment">
-         <span class="markdown">Physical address that identifies a location on a street to which communications may be delivered.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1878,8 +2861,8 @@ Contracts are usually written but may be spoken or implied, and generally have t
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+            <a href="#Location"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Location">location</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -1887,16 +2870,6 @@ Contracts are usually written but may be spoken or implied, and generally have t
             <a href="#atCountry"
                title="http://ontologies.atb-bremen.de/smashHitCore#atCountry">at country</a>
             <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>has members</dt>
-         <dd>
-            <a href="#Austria"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Austria">austria</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Germany"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Germany">germany</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Spain"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Spain">spain</a>
-            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
@@ -1962,9 +2935,6 @@ Contracts are usually written but may be spoken or implied, and generally have t
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/CreditAgreement</p>
-      <div class="comment">
-         <span class="markdown">a contractual agreement in which a debtor receives something of value and agrees to repay the creditor at some date in the future, in some form (e.g., cash, securities, etc.), generally with interest</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1981,9 +2951,6 @@ Contracts are usually written but may be spoken or implied, and generally have t
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/DER/DerivativesContracts/DerivativesMasterAgreements/CreditSupportAgreement</p>
-      <div class="comment">
-         <span class="markdown">Credit support agreement is a kind of contract. (i) Credit support agreement has some beneficiary that is credit support beneficiary. (ii) Credit support agreement is provided by some contract principal.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2112,68 +3079,43 @@ Contracts are usually written but may be spoken or implied, and generally have t
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">
-      <h3>DataProcessing<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="http://www.w3.org/ns/dpv#DataSource">
+      <h3>Data Source<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing</p>
-      <div class="comment">
-         <span class="markdown">Processing is defined by the GDPR (Article 4-2) as "any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction;".
-
-Processing can be considered as the action, within an activity for example, that uses data in a particular or specific way. Therefore, processing specifies what is happening to/with the data.</span>
-      </div>
+         <strong>IRI:</strong> http://www.w3.org/ns/dpv#DataSource</p>
       <dl class="description">
-         <dt>has sub-classes</dt>
+         <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/ns/dpv#Adapt" title="http://www.w3.org/ns/dpv#Adapt">Adapt</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Align" title="http://www.w3.org/ns/dpv#Align">Align</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Alter" title="http://www.w3.org/ns/dpv#Alter">Alter</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Collect" title="http://www.w3.org/ns/dpv#Collect">Collect</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Combine" title="http://www.w3.org/ns/dpv#Combine">Combine</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Consult" title="http://www.w3.org/ns/dpv#Consult">Consult</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Destruct" title="http://www.w3.org/ns/dpv#Destruct">Destruct</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#DiscloseByTransmission" title="http://www.w3.org/ns/dpv#DiscloseByTransmission">Disclose by Transmission</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Disseminate" title="http://www.w3.org/ns/dpv#Disseminate">Disseminate</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Erase" title="http://www.w3.org/ns/dpv#Erase">Erase</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Organise" title="http://www.w3.org/ns/dpv#Organise">Organise</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Record" title="http://www.w3.org/ns/dpv#Record">Record</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Restrict" title="http://www.w3.org/ns/dpv#Restrict">Restrict</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Retrieve" title="http://www.w3.org/ns/dpv#Retrieve">Retrieve</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Share" title="http://www.w3.org/ns/dpv#Share">Share</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Store" title="http://www.w3.org/ns/dpv#Store">Store</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Structure" title="http://www.w3.org/ns/dpv#Structure">Structure</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Use" title="http://www.w3.org/ns/dpv#Use">Use</a>
+            <a href="#http://www.w3.org/2002/07/owl#Thing" title="http://www.w3.org/2002/07/owl#Thing">Thing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
-         <dt>is in domain of</dt>
+      </dl>
+   </div>
+   <div class="entity" id="DataRentetionDate">
+      <h3>DataRetentionDate<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#DataRentetionDate</p>
+      <div class="comment">
+         <span class="markdown">Date up to which the data will be retained. Starts counting at time of consent start and will go up to period of time that one wants to retain the data.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
          <dd>
-            <a href="#hasAssociation"
-               title="http://ontologies.atb-bremen.de/smashHitCore#hasAssociation">has association</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasHash"
-               title="http://ontologies.atb-bremen.de/smashHitCore#hasHash">has hash</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData">has input data</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasOutputData"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasOutputData">has output data</a>
-            <sup class="type-op" title="object property">op</sup>
+            <a href="#metadata"
+               title="http://ontologies.atb-bremen.de/smashHitCore#metadata">Metadata</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#forDataProcessing"
-               title="http://ontologies.atb-bremen.de/smashHitCore#forDataProcessing">for data processing</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#isAboutData"
-               title="http://ontologies.atb-bremen.de/smashHitCore#isAboutData">is about data</a>
+            <a href="#hasRetentionDate"
+               title="http://ontologies.atb-bremen.de/smashHitCore#hasRetentionDate">has retention date</a>
             <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>has members</dt>
-         <dd>
-            <a href="#Analysis"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Analysis">analysis</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Collection"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Collection">collection</a>
-            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
@@ -2184,9 +3126,6 @@ Processing can be considered as the action, within an activity for example, that
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dcat#Dataset</p>
-      <div class="comment">
-         <span class="markdown">A collection of data, published or curated by a single agent, and available for access or download in one or more representations.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2233,14 +3172,10 @@ Processing can be considered as the action, within an activity for example, that
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Destruct</p>
-      <div class="comment">
-         <span class="markdown">to process data in a way it no longer exists or cannot be repaired</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -2274,14 +3209,10 @@ Processing can be considered as the action, within an activity for example, that
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#DiscloseByTransmission</p>
-      <div class="comment">
-         <span class="markdown">to disclose data by means of transmission</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -2293,14 +3224,10 @@ Processing can be considered as the action, within an activity for example, that
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Disseminate</p>
-      <div class="comment">
-         <span class="markdown">to spread data throughout</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -2312,9 +3239,6 @@ Processing can be considered as the action, within an activity for example, that
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/Duty</p>
-      <div class="comment">
-         <span class="markdown">The obligation to perform an Action</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2323,7 +3247,9 @@ Processing can be considered as the action, within an activity for example, that
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/ns/odrl/2/duty">hasDuty</span>
+            <a href="http://www.w3.org/ns/odrl/2/duty"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/duty">hasDuty</a>
          </dd>
       </dl>
    </div>
@@ -2335,9 +3261,7 @@ Processing can be considered as the action, within an activity for example, that
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/EconomicContract</p>
       <div class="comment">
-         <span class="markdown">definition
-A contract relating to and governing an economic transaction between two parties. [en]
-editorial note
+         <span class="markdown">Editorial Note
 From REA ontology. [en]</span>
       </div>
       <dl class="description">
@@ -2345,24 +3269,6 @@ From REA ontology. [en]</span>
          <dd>
             <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement"
                title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement">MutualAgreement</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="fibo-fnd-plc-vrt:ElectronicMailAddress">
-      <h3>Electronic Mail Address<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> fibo-fnd-plc-vrt:ElectronicMailAddress</p>
-      <div class="comment">
-         <span class="markdown">Virtual address that defines an electronic messaging endpoint to which email messages can be delivered, typically via an Simple Mail Transfer Protocol (SMTP) based communications system.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#fibo-fnd-plc-adr:VirtualAddress" title="fibo-fnd-plc-adr:VirtualAddress">Virtual Address</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -2407,37 +3313,11 @@ From REA ontology. [en]</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Erase</p>
-      <div class="comment">
-         <span class="markdown">to delete data</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="ExpirationDate">
-      <h3>expiration date<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#ExpirationDate</p>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Context"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">ConsentContext</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasExpirationDate"
-               title="http://ontologies.atb-bremen.de/smashHitCore#hasExpirationDate">ExpirationDate</a>
-            <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
@@ -2503,9 +3383,6 @@ From REA ontology. [en]</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://mmisw.org/ont/univmemphis/sensor#GPS</p>
-      <div class="comment">
-         <span class="markdown">A GPS Sensor</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2583,9 +3460,6 @@ From REA ontology. [en]</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://mmisw.org/ont/univmemphis/sensor#Humidity</p>
-      <div class="comment">
-         <span class="markdown">A Humidity Sensor</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2731,7 +3605,7 @@ From REA ontology. [en]</span>
          <dt>has super-classes</dt>
          <dd>
             <a href="#ConsentStatus"
-               title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">consent status</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">Consent Status</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
@@ -2759,7 +3633,7 @@ From REA ontology. [en]</span>
       </dl>
    </div>
    <div class="entity" id="license">
-      <h3>license<sup class="type-c" title="class">c</sup>
+      <h3>License<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -2773,18 +3647,67 @@ From REA ontology. [en]</span>
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/ns/odrl/2/Asset" title="http://www.w3.org/ns/odrl/2/Asset">Asset</a>
+            <a href="#http://www.w3.org/ns/odrl/2/Action" title="http://www.w3.org/ns/odrl/2/Action">Action</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/odrl/2/Asset" title="http://www.w3.org/ns/odrl/2/Asset">Asset</a>
             <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/odrl/2/Rule" title="http://www.w3.org/ns/odrl/2/Rule">Rule</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#LicenseId"
+               title="http://ontologies.atb-bremen.de/smashHitCore#LicenseId">license id</a>
             <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/odrl/2/Policy" title="http://www.w3.org/ns/odrl/2/Policy">policy</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <span class="dotted"
-                  title="https://dalicc.poolparty.biz/DALICC/additionalClauses">additional clauses</span>, <span class="dotted" title="dc:description">dc:description</span>, <span class="dotted" title="http://creativecommons.org/ns#jurisdiction">jurisdiction</span>, <span class="dotted"
-                  title="https://dalicc.poolparty.biz/DALICC/LiabilityLimitation">liability limitation</span>, <span class="dotted"
-                  title="https://dalicc.poolparty.biz/DALICC/WarrantyDisclaimer">warranty disclaimer</span>, <span class="dotted"
-                  title="https://dalicc.poolparty.biz/DALICC/WarrantyOrLiabilityAcceptance">warranty or liability acceptance</span>
+            <a href="http://www.w3.org/ns/odrl/2/derive"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/derive">Derive</a>, <a href="http://www.w3.org/ns/odrl/2/display"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/display">Display</a>, <a href="http://www.w3.org/ns/odrl/2/distribute"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/distribute">Distribute</a>, <a href="http://www.w3.org/ns/odrl/2/modify"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/modify">Modify</a>, <a href="http://www.w3.org/ns/odrl/2/present"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/present">Present</a>, <a href="http://www.w3.org/ns/odrl/2/reproduce"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/reproduce">Reproduce</a>, <a href="https://dalicc.poolparty.biz/DALICC/additionalClauses"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/additionalClauses">additional clauses</a>, <a href="http://creativecommons.org/ns#Attribution"
+               target="_blank"
+               title="http://creativecommons.org/ns#Attribution">attribution</a>, <a href="http://creativecommons.org/ns#attributionName"
+               target="_blank"
+               title="http://creativecommons.org/ns#attributionName">attribution name</a>, <a href="https://dalicc.poolparty.biz/DALICC/ChangeLicense"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/ChangeLicense">change license</a>, <a href="https://dalicc.poolparty.biz/DALICC/chargeDistributionFee"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/chargeDistributionFee">charge distribution fee</a>, <a href="https://dalicc.poolparty.biz/DALICC/CommercialUse"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/CommercialUse">commercial use</a>, <a href="https://dalicc.poolparty.biz/DALICC/compliantLicense"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/compliantLicense">compliant license</a>, <a href="http://creativecommons.org/ns#DerivativeWorks"
+               target="_blank"
+               title="http://creativecommons.org/ns#DerivativeWorks">derivative works</a>, <a href="http://purl.org/dc/terms/description"
+               target="_blank"
+               title="http://purl.org/dc/terms/description">description</a>, <a href="http://creativecommons.org/ns#jurisdiction"
+               target="_blank"
+               title="http://creativecommons.org/ns#jurisdiction">jurisdiction</a>, <a href="https://dalicc.poolparty.biz/DALICC/LiabilityLimitation"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/LiabilityLimitation">liability limitation</a>, <a href="https://dalicc.poolparty.biz/DALICC/modificationNotice"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/modificationNotice">modification notice</a>, <a href="http://creativecommons.org/ns#Notice"
+               target="_blank"
+               title="http://creativecommons.org/ns#Notice">notice</a>, <a href="https://dalicc.poolparty.biz/DALICC/promote"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/promote">promote</a>, <a href="https://dalicc.poolparty.biz/DALICC/PromotionSpecification"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/PromotionSpecification">promotion specification</a>, <a href="http://purl.org/dc/terms/publisher"
+               target="_blank"
+               title="http://purl.org/dc/terms/publisher">publisher</a>, <a href="https://dalicc.poolparty.biz/DALICC/rename"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/rename">rename</a>, <a href="https://dalicc.poolparty.biz/DALICC/WarrantyDisclaimer"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/WarrantyDisclaimer">warranty disclaimer</a>, <a href="https://dalicc.poolparty.biz/DALICC/WarrantyOrLiabilityAcceptance"
+               target="_blank"
+               title="https://dalicc.poolparty.biz/DALICC/WarrantyOrLiabilityAcceptance">warranty or liability acceptance</a>
          </dd>
          <dt>has members</dt>
          <dd>
@@ -2798,6 +3721,22 @@ From REA ontology. [en]</span>
          </dd>
       </dl>
    </div>
+   <div class="entity" id="LicenseId">
+      <h3>license id<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#LicenseId</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#license"
+               title="http://ontologies.atb-bremen.de/smashHitCore#license">License</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="http://mmisw.org/ont/univmemphis/sensor#Light">
       <h3>Light<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -2805,15 +3744,70 @@ From REA ontology. [en]</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://mmisw.org/ont/univmemphis/sensor#Light</p>
-      <div class="comment">
-         <span class="markdown">A Light Sensor</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <a href="#Sensor"
                title="http://ontologies.atb-bremen.de/smashHitCore#Sensor">Sensor</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Location">
+      <h3>location<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#Location</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://www.w3.org/2002/07/owl#Thing" title="http://www.w3.org/2002/07/owl#Thing">Thing</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Context"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Context">context</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#City"
+               title="http://ontologies.atb-bremen.de/smashHitCore#City">city</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Country"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Country">country</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Region"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Region">region</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#State"
+               title="http://ontologies.atb-bremen.de/smashHitCore#State">state</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">
+      <h3>Location<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#Location</p>
+      <div class="comment">
+         <span class="markdown">The location where consent was given/revoked.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#atCountry"
+               title="http://ontologies.atb-bremen.de/smashHitCore#atCountry">at country</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#atRegion"
+               title="http://ontologies.atb-bremen.de/smashHitCore#atRegion">at region</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#atState"
+               title="http://ontologies.atb-bremen.de/smashHitCore#atState">at state</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#atLocation"
+               title="http://ontologies.atb-bremen.de/smashHitCore#atLocation">at location</a>
+            <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
@@ -2824,9 +3818,6 @@ From REA ontology. [en]</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/dc/terms/Location</p>
-      <div class="comment">
-         <span class="markdown">A spatial region or named place.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2871,10 +3862,6 @@ From REA ontology. [en]</span>
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/GConsent#Medium</p>
-      <div class="comment">
-         <span class="markdown">Describes the medium through which consent was given/provided. Example: web form, recorded voice, signature on document.
-</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2915,10 +3902,14 @@ Some examples of basic metadata are author, date created, date modified, and fil
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#DataType"
+            <a href="#DataRentetionDate"
+               title="http://ontologies.atb-bremen.de/smashHitCore#DataRentetionDate">DataRetentionDate</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DataType"
                title="http://ontologies.atb-bremen.de/smashHitCore#DataType">DataType</a>
             <sup class="type-c" title="class">c</sup>, <a href="#http://purl.org/dc/terms/Location" title="http://purl.org/dc/terms/Location">Location</a>
             <sup class="type-c" title="class">c</sup>, <a href="#http://purl.org/dc/terms/PeriodOfTime" title="http://purl.org/dc/terms/PeriodOfTime">Period of Time</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#SensorDataCategory"
+               title="http://ontologies.atb-bremen.de/smashHitCore#SensorDataCategory">SensorDataCategory</a>
             <sup class="type-c" title="class">c</sup>, <a href="#Source"
                title="http://ontologies.atb-bremen.de/smashHitCore#Source">Source</a>
             <sup class="type-c" title="class">c</sup>, <a href="#Hash"
@@ -2964,9 +3955,6 @@ Some examples of basic metadata are author, date created, date modified, and fil
       </h3>
       <p>
          <strong>IRI:</strong> http://mmisw.org/ont/univmemphis/sensor#Motion</p>
-      <div class="comment">
-         <span class="markdown">A Motion Sensor</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -2990,11 +3978,7 @@ Some examples of basic metadata are author, date created, date modified, and fil
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement</p>
       <div class="comment">
-         <span class="markdown">synonym(s)
-bilateral contract
-definition
-contract between named parties whose individual rights and obligations are not transferable to another party without prior written permission
-explanatory note
+         <span class="markdown">Explanatory Note
 A mutual contractual agreement involves an exchange of a promises in which the promises made by each party represent considerations supporting the promises of the other party(ies).</span>
       </div>
       <dl class="description">
@@ -3057,9 +4041,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fbc-fi-fi:NegotiableSecurity</p>
-      <div class="comment">
-         <span class="markdown">Security that can be transferred to another party</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3096,9 +4077,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://mmisw.org/ont/univmemphis/sensor#Non-Imaging</p>
-      <div class="comment">
-         <span class="markdown">A Non-Imaging Sensor</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3115,9 +4093,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fnd-agr-ctr:NovateableContract</p>
-      <div class="comment">
-         <span class="markdown">Contract that may be replaced by another contract, and in that event, extinguishes the rights and obligations in effect under the original contract with those in the new agreement.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3164,10 +4139,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#OnlineForm</p>
-      <div class="comment">
-         <span class="markdown">It identifies if the consent is taken in the form of an online form.
-</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3184,10 +4155,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#OnlineOptInOption</p>
-      <div class="comment">
-         <span class="markdown">It identifies if the consent is taken as an online opt-in option.
-</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3267,14 +4234,10 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Organise</p>
-      <div class="comment">
-         <span class="markdown">to organize data for arranging or classifying</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -3319,9 +4282,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://mmisw.org/ont/univmemphis/sensor#Orientation</p>
-      <div class="comment">
-         <span class="markdown">An Orientation Sensor</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3353,10 +4313,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#Paper</p>
-      <div class="comment">
-         <span class="markdown">It identifies if the consent is taken on paper.
-</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3394,9 +4350,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/dc/terms/PeriodOfTime</p>
-      <div class="comment">
-         <span class="markdown">An interval of time that is named or defined by its start and end.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3433,9 +4386,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/Permission</p>
-      <div class="comment">
-         <span class="markdown">The ability to perform an Action over an Asset.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3444,7 +4394,9 @@ A mutual contractual agreement involves an exchange of a promises in which the p
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/ns/odrl/2/duty">hasDuty</span>
+            <a href="http://www.w3.org/ns/odrl/2/duty"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/duty">hasDuty</a>
          </dd>
       </dl>
    </div>
@@ -3517,6 +4469,8 @@ A mutual contractual agreement involves an exchange of a promises in which the p
          <dd>
             <a href="#hasPersonalData"
                title="http://ontologies.atb-bremen.de/smashHitCore#hasPersonalData">has personal data</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasRetentionDate"
+               title="http://ontologies.atb-bremen.de/smashHitCore#hasRetentionDate">has retention date</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
@@ -3554,9 +4508,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fnd-plc-adr:PhysicalAddress</p>
-      <div class="comment">
-         <span class="markdown">Physical address where communications can be addressed, papers served or representatives located for any kind of organization or person.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3577,9 +4528,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#PhysicalLocation</p>
-      <div class="comment">
-         <span class="markdown">Spatial location defined by e.g. its GPS coordinates</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3595,14 +4543,11 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/Policy</p>
-      <div class="comment">
-         <span class="markdown">"A non-empty group of Permissions and/or Prohibitions."</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <a href="#license"
-               title="http://ontologies.atb-bremen.de/smashHitCore#license">license</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#license">License</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
@@ -3612,7 +4557,11 @@ A mutual contractual agreement involves an exchange of a promises in which the p
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/ns/odrl/2/assignee">assignee</span>, <span class="dotted" title="http://www.w3.org/ns/odrl/2/hasAction">hasAction</span>
+            <a href="http://www.w3.org/ns/odrl/2/assignee"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/assignee">assignee</a>, <a href="http://www.w3.org/ns/odrl/2/hasAction"
+               target="_blank"
+               title="http://www.w3.org/ns/odrl/2/hasAction">hasAction</a>
          </dd>
       </dl>
    </div>
@@ -3651,6 +4600,71 @@ A mutual contractual agreement involves an exchange of a promises in which the p
          </dd>
       </dl>
    </div>
+   <div class="entity" id="http://www.w3.org/ns/dpv#Processing">
+      <h3>Processing<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/dpv#Processing</p>
+      <div class="comment">
+         <span class="markdown">Processing is defined by the GDPR (Article 4-2) as "any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction;".
+
+Processing can be considered as the action, within an activity for example, that uses data in a particular or specific way. Therefore, processing specifies what is happening to/with the data.</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#http://www.w3.org/ns/dpv#Adapt" title="http://www.w3.org/ns/dpv#Adapt">Adapt</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Align" title="http://www.w3.org/ns/dpv#Align">Align</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Alter" title="http://www.w3.org/ns/dpv#Alter">Alter</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Collect" title="http://www.w3.org/ns/dpv#Collect">Collect</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Combine" title="http://www.w3.org/ns/dpv#Combine">Combine</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Consult" title="http://www.w3.org/ns/dpv#Consult">Consult</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Destruct" title="http://www.w3.org/ns/dpv#Destruct">Destruct</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#DiscloseByTransmission" title="http://www.w3.org/ns/dpv#DiscloseByTransmission">Disclose by Transmission</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Disseminate" title="http://www.w3.org/ns/dpv#Disseminate">Disseminate</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Erase" title="http://www.w3.org/ns/dpv#Erase">Erase</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Organise" title="http://www.w3.org/ns/dpv#Organise">Organise</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Record" title="http://www.w3.org/ns/dpv#Record">Record</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Restrict" title="http://www.w3.org/ns/dpv#Restrict">Restrict</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Retrieve" title="http://www.w3.org/ns/dpv#Retrieve">Retrieve</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Share" title="http://www.w3.org/ns/dpv#Share">Share</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Store" title="http://www.w3.org/ns/dpv#Store">Store</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Structure" title="http://www.w3.org/ns/dpv#Structure">Structure</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#Use" title="http://www.w3.org/ns/dpv#Use">Use</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasAssociation"
+               title="http://ontologies.atb-bremen.de/smashHitCore#hasAssociation">has association</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasHash"
+               title="http://ontologies.atb-bremen.de/smashHitCore#hasHash">has hash</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData"
+               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData">has input data</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#hasOutputData"
+               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#hasOutputData">has output data</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#forDataProcessing"
+               title="http://ontologies.atb-bremen.de/smashHitCore#forDataProcessing">for data processing</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isAboutData"
+               title="http://ontologies.atb-bremen.de/smashHitCore#isAboutData">is about data</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#Analysis"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Analysis">analysis</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Collection"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Collection">collection</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="http://www.w3.org/ns/dpv#Purpose">
       <h3>Purpose<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -3658,6 +4672,9 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Purpose</p>
+      <div class="comment">
+         <span class="markdown">The purpose of Data Handling, from the purposes Taxonomy</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3690,14 +4707,10 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Record</p>
-      <div class="comment">
-         <span class="markdown">to make a record (especially media)</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -3712,8 +4725,8 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+            <a href="#Location"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Location">location</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -3753,9 +4766,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dcat#Resource</p>
-      <div class="comment">
-         <span class="markdown">Resource published or curated by a single agent.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3807,14 +4817,10 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Restrict</p>
-      <div class="comment">
-         <span class="markdown">to apply a restriction on the processsing of specific records</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -3826,14 +4832,10 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Retrieve</p>
-      <div class="comment">
-         <span class="markdown">to retrieve data, often in an automated manner</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -3867,9 +4869,6 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#Risk</p>
-      <div class="comment">
-         <span class="markdown">Risks associated with the processing of personal data and countermeasures</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -3925,14 +4924,11 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/Rule</p>
-      <div class="comment">
-         <span class="markdown">An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <a href="#license"
-               title="http://ontologies.atb-bremen.de/smashHitCore#license">license</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#license">License</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
@@ -4088,15 +5084,16 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/2002/07/owl#Thing" title="http://www.w3.org/2002/07/owl#Thing">Thing</a>
+            <a href="#metadata"
+               title="http://ontologies.atb-bremen.de/smashHitCore#metadata">Metadata</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
          <dd>
             <a href="#BuildingData"
-               title="http://ontologies.atb-bremen.de/smashHitCore#BuildingData">BuildingData</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#BuildingData">Building Data</a>
             <sup class="type-c" title="class">c</sup>, <a href="#CarData"
-               title="http://ontologies.atb-bremen.de/smashHitCore#CarData">car data</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#CarData">Car Data</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -4207,8 +5204,7 @@ A mutual contractual agreement involves an exchange of a promises in which the p
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/odrl/2/Set</p>
       <div class="comment">
-         <span class="markdown">A Policy that expresses a Rule over an Asset.
-A Set Policy MUST contain a target Asset, and at least one Rule. A Set Policy is the default Policy subclass. The Set is aimed at scenarios where there is an open criteria for the semantics of the policy expressions and typically refined by other systems/profiles that process the information at a later time. No privileges are granted to any Party (if defined).</span>
+         <span class="markdown">A Set Policy MUST contain a target Asset, and at least one Rule. A Set Policy is the default Policy subclass. The Set is aimed at scenarios where there is an open criteria for the semantics of the policy expressions and typically refined by other systems/profiles that process the information at a later time. No privileges are granted to any Party (if defined).</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -4225,14 +5221,10 @@ A Set Policy MUST contain a target Asset, and at least one Rule. A Set Policy is
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Share</p>
-      <div class="comment">
-         <span class="markdown">to give data (or a portion of it) to others</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4284,8 +5276,8 @@ A Set Policy MUST contain a target Asset, and at least one Rule. A Set Policy is
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-               title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+            <a href="#Location"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Location">location</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -4293,14 +5285,6 @@ A Set Policy MUST contain a target Asset, and at least one Rule. A Set Policy is
             <a href="#atState"
                title="http://ontologies.atb-bremen.de/smashHitCore#atState">at state</a>
             <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>has members</dt>
-         <dd>
-            <a href="#Bavaria"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Bavaria">bavaria</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Tyrol"
-               title="http://ontologies.atb-bremen.de/smashHitCore#Tyrol">tyrol</a>
-            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
@@ -4312,7 +5296,8 @@ A Set Policy MUST contain a target Asset, and at least one Rule. A Set Policy is
       <p>
          <strong>IRI:</strong> http://www.w3.org/1999/02/22-rdf-syntax-ns#Status</p>
       <div class="comment">
-         <span class="markdown">Describes the status of consent.
+         <span class="markdown">
+
 .
 .
 Status of contracts to be added later.</span>
@@ -4321,7 +5306,7 @@ Status of contracts to be added later.</span>
          <dt>has sub-classes</dt>
          <dd>
             <a href="#ConsentStatus"
-               title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">consent status</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">Consent Status</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -4348,9 +5333,6 @@ Status of contracts to be added later.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#StorageLocation</p>
-      <div class="comment">
-         <span class="markdown">Technical storage location defined e.g. by a URL</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -4366,14 +5348,10 @@ Status of contracts to be added later.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Store</p>
-      <div class="comment">
-         <span class="markdown">to keep data for future use</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4385,9 +5363,6 @@ Status of contracts to be added later.</span>
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fnd-plc-adr:StreetAddress</p>
-      <div class="comment">
-         <span class="markdown">Index to a location that consists of a primary address number, predirectional, street name, suffix, postdirectional, and an optional secondary unit.</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -4403,32 +5378,10 @@ Status of contracts to be added later.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Structure</p>
-      <div class="comment">
-         <span class="markdown">to arrange data according to a structure</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="fibo-fnd-plc-vrt:TelephoneNumber">
-      <h3>Telephone Number<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> fibo-fnd-plc-vrt:TelephoneNumber</p>
-      <div class="comment">
-         <span class="markdown">Virtual address that may be assigned to a fixed-line telephone subscriber station connected to a telephone line or to a wireless electronic telephony device, such as a radio telephone or a mobile telephone, or to other devices or services for data transmission via the public switched telephone network (PSTN) or other public and private networks.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#fibo-fnd-plc-adr:VirtualAddress" title="fibo-fnd-plc-adr:VirtualAddress">Virtual Address</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4493,6 +5446,9 @@ Status of contracts to be added later.</span>
                title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_">Contract</a>
             <sup class="type-c" title="class">c</sup>, <a href="#ContractId"
                title="http://ontologies.atb-bremen.de/smashHitCore#ContractId">ContractId</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#DataSource" title="http://www.w3.org/ns/dpv#DataSource">Data Source</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#license"
+               title="http://ontologies.atb-bremen.de/smashHitCore#license">License</a>
             <sup class="type-c" title="class">c</sup>, <a href="#metadata"
                title="http://ontologies.atb-bremen.de/smashHitCore#metadata">Metadata</a>
             <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dpv#PersonalDataCategory" title="http://www.w3.org/ns/dpv#PersonalDataCategory">PersonalDataCategory</a>
@@ -4500,12 +5456,12 @@ Status of contracts to be added later.</span>
             <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/dcat#Resource" title="http://www.w3.org/ns/dcat#Resource">Resource</a>
             <sup class="type-c" title="class">c</sup>, <a href="#Risk"
                title="http://ontologies.atb-bremen.de/smashHitCore#Risk">Risk</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#SensorDataCategory"
-               title="http://ontologies.atb-bremen.de/smashHitCore#SensorDataCategory">SensorDataCategory</a>
             <sup class="type-c" title="class">c</sup>, <a href="#ConsentID"
                title="http://ontologies.atb-bremen.de/smashHitCore#ConsentID">consent i d</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#license"
-               title="http://ontologies.atb-bremen.de/smashHitCore#license">license</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Context"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Context">context</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Location"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Location">location</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -4532,6 +5488,22 @@ Status of contracts to be added later.</span>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2002/07/owl#targetIndividual" title="http://www.w3.org/2002/07/owl#targetIndividual">targetIndividual</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2002/07/owl#topObjectProperty" title="http://www.w3.org/2002/07/owl#topObjectProperty">topObjectProperty</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Time">
+      <h3>time<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#Time</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Context"
+               title="http://ontologies.atb-bremen.de/smashHitCore#Context">context</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -4564,9 +5536,7 @@ Status of contracts to be added later.</span>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/TransferableContract</p>
       <div class="comment">
-         <span class="markdown">definition
-contract in which the rights and obligations of one party (the holder) may be transferred to another party, which thereby takes on the same rights and obligations with respect to the other party to the contract
-explanatory note
+         <span class="markdown">Explanatory Note
 Note that the ability to transfer ownership of one side of a contract, and the concept of assignability, are distinct. In one case the contract may be freely traded; in the other case, some legal transfer of rights to a third party takes place, without a change in who are the signatories of a (typically bilateral) contract.</span>
       </div>
       <dl class="description">
@@ -4618,9 +5588,7 @@ Note that the ability to transfer ownership of one side of a contract, and the c
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/UnilateralContract</p>
       <div class="comment">
-         <span class="markdown">definition
-contract in which one party makes an express promise without securing a reciprocal agreement from the other party(ies)
-explanatory note
+         <span class="markdown">Explanatory Note
 In a unilateral, or one-sided, contract, one party, known as the offeror, makes a promise in exchange for an act (or abstention from acting) by another party, known as the offeree. If the offeree acts on the offeror's promise, the offeror is legally obligated to fulfill the contract, but an offeree cannot be forced to act (or not act), because no return promise has been made to the offeror. After an offeree has performed, only one enforceable promise exists, that of the offeror.</span>
       </div>
       <dl class="description">
@@ -4645,14 +5613,10 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/ns/dpv#Use</p>
-      <div class="comment">
-         <span class="markdown">to use data</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-               title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+            <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4716,7 +5680,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <dt>has super-classes</dt>
          <dd>
             <a href="#ConsentStatus"
-               title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">consent status</a>
+               title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">Consent Status</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
@@ -4734,9 +5698,6 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/VerbalContract</p>
-      <div class="comment">
-         <span class="markdown">Contract that exists as a result of some verbal exchange</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -4759,39 +5720,11 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </h3>
       <p>
          <strong>IRI:</strong> http://purl.org/adaptcentre/openscience/ontologies/consent#Video</p>
-      <div class="comment">
-         <span class="markdown">It identifies if the consent is taken in the form of video.
-</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
             <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat"
                title="http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentFormat">ConsentFormat</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="fibo-fnd-plc-adr:VirtualAddress">
-      <h3>Virtual Address<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> fibo-fnd-plc-adr:VirtualAddress</p>
-      <div class="comment">
-         <span class="markdown">Address identifying a virtual, i.e. non-physical, location.</span>
-      </div>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#fibo-fnd-plc-adr:Address" title="fibo-fnd-plc-adr:Address">Address</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>has sub-classes</dt>
-         <dd>
-            <a href="#fibo-fnd-plc-vrt:ElectronicMailAddress" title="fibo-fnd-plc-vrt:ElectronicMailAddress">Electronic Mail Address</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#fibo-fnd-plc-vrt:TelephoneNumber" title="fibo-fnd-plc-vrt:TelephoneNumber">Telephone Number</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4803,9 +5736,6 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/WrittenContract</p>
-      <div class="comment">
-         <span class="markdown">formal contract that is written and signed by the parties thereto</span>
-      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -4827,7 +5757,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          </dd>
       </dl>
    </div>
-</div><div id="objectproperties">
+</div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
    <h3 id="properties" class="list">Object Properties</h3>
    <ul class="hlist">
       <li>
@@ -5023,6 +5953,12 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <a href="#hasPurposePreference"
             title="http://ontologies.atb-bremen.de/smashHitCore#hasPurposePreference">
             <span>has purpose preference</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasRetentionDate"
+            title="http://ontologies.atb-bremen.de/smashHitCore#hasRetentionDate">
+            <span>has retention date</span>
          </a>
       </li>
       <li>
@@ -5342,19 +6278,14 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#atCity</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
                <a href="#atLocation"
                   title="http://ontologies.atb-bremen.de/smashHitCore#atLocation">at location</a>
                <sup class="type-op" title="object property">op</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Context"
-                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">ConsentContext</a>
-               <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -5374,7 +6305,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#atCountry</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -5385,7 +6317,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
             <dt>has domain</dt>
             <dd>
                <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">Location</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -5406,7 +6338,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#atDateTime</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -5423,12 +6356,6 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
             <dd>
                <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Status"
                   title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Status">Status</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Time"
-                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Time">ConsentTime</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -5470,7 +6397,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
             <dt>has range</dt>
             <dd>
                <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">Location</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -5485,7 +6412,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#atRegion</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -5496,7 +6424,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
             <dt>has domain</dt>
             <dd>
                <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">Location</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -5517,7 +6445,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#atState</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -5528,7 +6457,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
             <dt>has domain</dt>
             <dd>
                <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Location"
-                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">ConsentGivenAtLocation</a>
+                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Location">Location</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -5671,7 +6600,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -5690,12 +6620,6 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
                   title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Status">Status</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#ExpirationDate"
-                  title="http://ontologies.atb-bremen.de/smashHitCore#ExpirationDate">expiration date</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
          </dl>
       </div>
    </div>
@@ -5708,12 +6632,12 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#forDataProcessing</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has range</dt>
             <dd>
-               <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+               <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -5748,7 +6672,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#GrantedAtTime</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -5786,9 +6711,6 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasAssociation</p>
-      <div class="comment">
-         <span class="markdown">Indicates and Association with another entity for a Purpose or Data Processing.</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -5803,8 +6725,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+               <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
@@ -5831,8 +6752,9 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <dl>
             <dt>has super-properties</dt>
             <dd>
-               <span class="dotted"
-                     title="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation">has contract location</span>
+               <a href="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation"
+                  target="_blank"
+                  title="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation">has contract location</a>
                <sup class="type-op" title="object property">op</sup>
             </dd>
             <dt>has domain</dt>
@@ -5856,7 +6778,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has sub-properties</dt>
             <dd>
@@ -5876,12 +6799,6 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
                   title="http://ontologies.atb-bremen.de/smashHitCore#consent">Consent</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#http://purl.org/adaptcentre/openscience/ontologies/consent#Context"
-                  title="http://purl.org/adaptcentre/openscience/ontologies/consent#Context">ConsentContext</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
          </dl>
       </div>
    </div>
@@ -5896,8 +6813,9 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <dl>
             <dt>has super-properties</dt>
             <dd>
-               <span class="dotted"
-                     title="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation">has contract location</span>
+               <a href="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation"
+                  target="_blank"
+                  title="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation">has contract location</a>
                <sup class="type-op" title="object property">op</sup>
             </dd>
             <dt>has domain</dt>
@@ -5925,8 +6843,9 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <span class="dotted"
-                     title="http://ontologies.atb-bremen.de/smashHitCore#contract">contract</span>
+               <a href="http://ontologies.atb-bremen.de/smashHitCore#contract"
+                  target="_blank"
+                  title="http://ontologies.atb-bremen.de/smashHitCore#contract">contract</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
@@ -5951,7 +6870,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasEmail</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -5983,18 +6903,20 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasExpiry</p>
-      <div class="comment">
-         <span class="markdown">Specifies the Instant or Duration in which the consent expires.
-</span>
-      </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
                <a href="#consent"
                   title="http://ontologies.atb-bremen.de/smashHitCore#consent">Consent</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_"
+                  title="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract_">Contract</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -6009,7 +6931,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasHash</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -6018,12 +6941,11 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+               <a href="#http://www.w3.org/ns/dcat#Resource" title="http://www.w3.org/ns/dcat#Resource">Resource</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#http://www.w3.org/ns/dcat#Resource" title="http://www.w3.org/ns/dcat#Resource">Resource</a>
+               <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -6044,12 +6966,12 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://www.w3.org/1999/02/22-rdf-syntax-ns#hasInputData</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> symmetric, transitive</p>
+            <strong>has characteristics:
+                </strong> symmetric, transitive</p>
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+               <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
@@ -6159,8 +7081,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+               <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
@@ -6190,7 +7111,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasPersonalData</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has sub-properties</dt>
             <dd>
@@ -6260,8 +7182,9 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <dl>
             <dt>has super-properties</dt>
             <dd>
-               <span class="dotted"
-                     title="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation">has contract location</span>
+               <a href="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation"
+                  target="_blank"
+                  title="http://ontologies.atb-bremen.de/smashHitCore#hasContractLocation">has contract location</a>
                <sup class="type-op" title="object property">op</sup>
             </dd>
             <dt>has domain</dt>
@@ -6313,6 +7236,29 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
             <dt>has range</dt>
             <dd>
                <a href="#http://www.w3.org/ns/dpv#Purpose" title="http://www.w3.org/ns/dpv#Purpose">Purpose</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasRetentionDate">
+      <h3>has retention date<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasRetentionDate</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/dpv#PersonalDataCategory" title="http://www.w3.org/ns/dpv#PersonalDataCategory">PersonalDataCategory</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DataRentetionDate"
+                  title="http://ontologies.atb-bremen.de/smashHitCore#DataRentetionDate">DataRetentionDate</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -6373,7 +7319,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasStatus</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has sub-properties</dt>
             <dd>
@@ -6392,7 +7339,7 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
             <dt>has range</dt>
             <dd>
                <a href="#ConsentStatus"
-                  title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">consent status</a>
+                  title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">Consent Status</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -6407,7 +7354,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasTelephone</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -6456,7 +7404,8 @@ In a unilateral, or one-sided, contract, one party, known as the offeror, makes 
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasUsername</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -6490,7 +7439,8 @@ Can be the version of consent and/or contract.</span>
       </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional, transitive</p>
+            <strong>has characteristics:
+                </strong> functional, transitive</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -6519,9 +7469,6 @@ Can be the version of consent and/or contract.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasAddress</p>
-      <div class="comment">
-         <span class="markdown">Specify the physical address of a location.</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -6571,9 +7518,6 @@ Can be the version of consent and/or contract.</span>
       </h3>
       <p>
          <strong>IRI:</strong> fibo-der-drc-ma:hasBeneficiary</p>
-      <div class="comment">
-         <span class="markdown">Has beneficiary is a kind of has counterparty.</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -6624,9 +7568,6 @@ Can be the version of consent and/or contract.</span>
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasContractParty</p>
-      <div class="comment">
-         <span class="markdown">Legally competent party that has entered into a binding agreement, accepting and conceding obligations, responsibilities, and benefits as specified</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -6670,9 +7611,6 @@ Can be the version of consent and/or contract.</span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasContractType</p>
-      <div class="comment">
-         <span class="markdown">It specify the different type of contracts such as Written Contract, Credit Support Agreement, Verbal contract etc.</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -6697,9 +7635,6 @@ Can be the version of consent and/or contract.</span>
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasContractualElement</p>
-      <div class="comment">
-         <span class="markdown">indicates something that is a component of an agreement</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -6764,9 +7699,6 @@ Can be the version of consent and/or contract.</span>
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasEffectiveDateTimeStamp</p>
-      <div class="comment">
-         <span class="markdown">indicates the date and time, including time zone, something comes into force</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -6805,9 +7737,6 @@ Can be the version of consent and/or contract.</span>
       </h3>
       <p>
          <strong>IRI:</strong> https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/hasExecutionDateTimeStamp</p>
-      <div class="comment">
-         <span class="markdown">indicates the date and time, including time zone, a contract has been signed by all the necessary parties</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -6952,7 +7881,8 @@ Can be the version of consent and/or contract.</span>
          <strong>IRI:</strong> https://w3id.org/GConsent#hasRole</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -7109,7 +8039,8 @@ Can be the version of consent and/or contract.</span>
       </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -7142,7 +8073,8 @@ Can be the version of consent and/or contract.</span>
       </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -7220,12 +8152,11 @@ Specifies the medium through which the consent was given. Examples are web forms
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing"
-                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Data_Processing">DataProcessing</a>
+               <a href="#http://www.w3.org/ns/dcat#Resource" title="http://www.w3.org/ns/dcat#Resource">Resource</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#http://www.w3.org/ns/dcat#Resource" title="http://www.w3.org/ns/dcat#Resource">Resource</a>
+               <a href="#http://www.w3.org/ns/dpv#Processing" title="http://www.w3.org/ns/dpv#Processing">Processing</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -7245,7 +8176,8 @@ Indicates the entity or activitiy that provided the consent.
       </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional, asymmetric, irreflexive</p>
+            <strong>has characteristics:
+                </strong> functional, asymmetric, irreflexive</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -7277,9 +8209,6 @@ Indicates the entity or activitiy that provided the consent.
       </h3>
       <p>
          <strong>IRI:</strong> fibo-fnd-agr-ctr:isAssignable</p>
-      <div class="comment">
-         <span class="markdown">Specifies whether a particular financial instrument is or is not transferable</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -7316,12 +8245,13 @@ Indicates the entity or activitiy that provided the consent.
       </div>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> inverse functional</p>
+            <strong>has characteristics:
+                </strong> inverse functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
                <a href="#ConsentStatus"
-                  title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">consent status</a>
+                  title="http://ontologies.atb-bremen.de/smashHitCore#ConsentStatus">Consent Status</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -7382,7 +8312,8 @@ Indicates the entity or activitiy that provided the consent.
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#forPurpose</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> symmetric</p>
+            <strong>has characteristics:
+                </strong> symmetric</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -7402,7 +8333,8 @@ Indicates the entity or activitiy that provided the consent.
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#requestedBy</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -7427,7 +8359,8 @@ Indicates the entity or activitiy that provided the consent.
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#RevokedAtTime</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has super-properties</dt>
             <dd>
@@ -7683,7 +8616,7 @@ Indicates the entity or activitiy that provided the consent.
          </dl>
       </div>
    </div>
-</div><div id="dataproperties">
+</div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
    <h3 id="dataproperties-headline" class="list">Data Properties</h3>
    <ul class="hlist">
       <li>
@@ -7746,7 +8679,9 @@ Indicates the entity or activitiy that provided the consent.
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
+               <a href="http://www.w3.org/2000/01/rdf-schema#Literal"
+                  target="_blank"
+                  title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</a>
             </dd>
          </dl>
       </div>
@@ -7771,8 +8706,9 @@ Indicates the entity or activitiy that provided the consent.
          <dl>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+               <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</a>
             </dd>
          </dl>
       </div>
@@ -7786,7 +8722,8 @@ Indicates the entity or activitiy that provided the consent.
          <strong>IRI:</strong> http://ontologies.atb-bremen.de/smashHitCore#hasID</p>
       <div class="description">
          <p>
-            <strong>has characteristics:</strong> functional</p>
+            <strong>has characteristics:
+                </strong> functional</p>
          <dl>
             <dt>has domain</dt>
             <dd>
@@ -7795,8 +8732,9 @@ Indicates the entity or activitiy that provided the consent.
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">lang string</span>
+               <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+                  target="_blank"
+                  title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">lang string</a>
             </dd>
          </dl>
       </div>
@@ -7821,8 +8759,9 @@ Indicates the entity or activitiy that provided the consent.
          <dl>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+               <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</a>
             </dd>
          </dl>
       </div>
@@ -7847,8 +8786,9 @@ Indicates the entity or activitiy that provided the consent.
          <dl>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+               <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</a>
             </dd>
          </dl>
       </div>
@@ -7873,8 +8813,9 @@ Indicates the entity or activitiy that provided the consent.
          <dl>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+               <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</a>
             </dd>
          </dl>
       </div>
@@ -7899,8 +8840,9 @@ Indicates the entity or activitiy that provided the consent.
          <dl>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+               <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</a>
             </dd>
          </dl>
       </div>
@@ -7925,8 +8867,9 @@ Indicates the entity or activitiy that provided the consent.
          <dl>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</span>
+               <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non negative integer</a>
             </dd>
          </dl>
       </div>
@@ -7956,7 +8899,9 @@ Indicates the entity or activitiy that provided the consent.
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
+               <a href="http://www.w3.org/2000/01/rdf-schema#Literal"
+                  target="_blank"
+                  title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</a>
             </dd>
          </dl>
       </div>
@@ -7971,8 +8916,8 @@ Indicates the entity or activitiy that provided the consent.
 </div>
 </div>
 </div>
-<div id="acknowledgements">
-<h2 id="ack" class="list">Acknowledgements <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>
 The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
 </div>
