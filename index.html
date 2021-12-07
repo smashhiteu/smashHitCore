@@ -61,7 +61,7 @@ $(function(){
 <dt>Latest version:</dt>
 <dd><a href="https://smashhiteu.github.io/smashHitCore/">https://smashhiteu.github.io/smashHitCore/</a></dd>
 <dt>Revision:</dt>
-<dd>2021/12/06</dd>
+<dd>2021/12/07</dd>
 
 
 <hr/>
@@ -71,10 +71,7 @@ $(function(){
 <span>Ontology Specification Draft</span>
 </div>
 </div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
-The smashHitCore ontology extends the scope of existing ontologies by providing an integrated semantic model for multiple domains such as consent, contracts, licenses and sensor data. This work is part of the smashHit4 project, which aims to develop a framework for trusted and secure sharing of data streams from both personal and industrial platforms needed to build sectorial and cross-sectorial services. The ontology models multiple GDPR legal bases such as consent and contracts, but is not limited to them. Concepts such as metadata, sensor data, data processing, involved entities, which can be useful for compliance checking, are modelled as well.
-</div>
-<div id="introduction"><h2>Introduction</h2><span class="markdown">
-The smashHitCore ontology is being developed for GDPR-compliant secure and controlled sharing of personal and industrial data. smashHitCore represents informed consent as defined by GDPR (Art. 7) but is not limited to it. Based on limitations of existing ontologies for consent such as the ones presented in Section 2, we have built a semantic model that also models sensor data, contracts, licenses and involved entities. The current version of smashHitCore (v1) focuses mainly on semantically represent- ing informed consent and concepts such as contracts and licenses are not yet modelled in detail. The ontology development will go through several iterations as the smashHit project progresses. However, the current version of smashHitCore can already be used as intended: as the main data model for the smashHit legal knowledge graph and for per- forming GDPR compliance checking. The ontology provides a common understanding of informed consent, contracts and data processing in different context, for all entities that are involved with the smashHit framework. Future work will focus on the classes Contract and License and concepts such as privacy and security. For example, defining specific terms and conditions that might apply for each contract type, the status of a contract, example contexts and specific privacy measures (e.g. privacy policies and notices) that apply. Further, given the GDPR mandated Privacy by Design approach (Art. 25) smashHitCore v2 will include privacy and security concepts that enable seamless communication between the privacy and security layer of smashHit and the rest of the system as well as concepts and properties for modelling the context under which the consent is being given.
+The smashHitCore ontology extends the scope of existing ontologies by providing an integrated semantic model for multiple domains such as consent, contracts, licenses and sensor data. This work is part of the <a href="https://www.smashhit.eu">smashhit</a> project, which is developing a framework for trusted and secure sharing of data streams from both personal and industrial platforms needed to build sectorial and cross-sectorial services. The ontology models multiple GDPR legal bases such as consent and contracts, but is not limited to them. Concepts such as metadata, sensor data, data processing, involved entities, which can be useful for compliance checking, are modelled as well.
 </div>
 
 <hr/>
@@ -84,7 +81,10 @@ The smashHitCore ontology is being developed for GDPR-compliant secure and contr
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+The smashHitCore ontology for GDPR-compliant data sharing, which models informed consent as defined by GDPR (Art. 7), sensor data and
+contracts in one place. The ontology provides a common understanding of these concepts for both humans and machines and is currently used as a schema for the smashHit legal knowledge graph. Further, it is also used for performing compliance verification by smashHit’s Automatic Contracting Tool. Requirements for smashHitCore are derived from two use cases included in the <a href="https://www.smashhit.eu">smashhit</a> project. Use case 1 (UC1) focuses on insurance data integration and services. Insurance companies handle personal data on a daily basis, making them one of the industries impacted most by GDPR. One of the main challenges when modelling consent for the insurance industry domain is the existence of dynamic situations such as a change in ownership of the insured property, which can disrupt existing declarations of consent. Semantically modelling different consent and contract contexts (e.g. for car, home insurance) is still a challenge. Use case 2 (UC2) focuses on traffic, smart city data and services. In smart cities, one's data is spread across different sources simultaneously (e.g. data sources such as vehicles sensors, data processors) and can be used for different purposes by different entities simultaneously. For example, sensor data coming from one's vehicle, one's home or one's surroundings. The main challenge is to model both consent based on different contexts related to sensor data and its use in those contexts in compliance with GDPR. By reusing existing ontologies and defining new concepts, smashHitCore provides a unified and coherent model for multiple GDPR legal basis such as consent, contracts and the sensor data and data processing associated with them in one place.
+
+</span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
